@@ -1,0 +1,2651 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SEGDEPWModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="asistenciaEntrenamientos">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idEntrenamiento" Type="int" Nullable="false" />
+          <Property Name="idPersona" Type="int" Nullable="false" />
+          <Property Name="asistencia" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="nota" Type="varchar" MaxLength="1000" />
+          <Property Name="idusuariomod" Type="int" />
+          <Property Name="fechamod" Type="datetimeoffset" Precision="7" />
+        </EntityType>
+        <EntityType Name="categorias">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="deno" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="3" />
+          <Property Name="fechaalta" Type="datetimeoffset" Precision="7" Nullable="false" />
+          <Property Name="idEntrenador" Type="int" Nullable="false" />
+          <Property Name="idTemporada" Type="int" Nullable="false" />
+          <Property Name="idusuariomod" Type="int" />
+          <Property Name="fechamod" Type="datetimeoffset" Precision="7" />
+        </EntityType>
+        <EntityType Name="categoriasPersonas">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idPersona" Type="int" Nullable="false" />
+          <Property Name="idCategoria" Type="int" Nullable="false" />
+          <Property Name="idusuariomod" Type="int" />
+          <Property Name="fechamod" Type="datetimeoffset" Precision="7" />
+        </EntityType>
+        <EntityType Name="climas">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="deno" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="idusuariomod" Type="int" />
+          <Property Name="fechamod" Type="datetimeoffset" Precision="7" />
+        </EntityType>
+        <EntityType Name="clubes">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="deno" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="idusuariomod" Type="int" />
+          <Property Name="fechamod" Type="datetimeoffset" Precision="7" />
+        </EntityType>
+        <EntityType Name="destrezas">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="deno" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="idNivel" Type="int" Nullable="false" />
+          <Property Name="idGrupo" Type="int" Nullable="false" />
+          <Property Name="nota" Type="ntext" />
+          <Property Name="idusuariomod" Type="int" />
+          <Property Name="fechamod" Type="datetimeoffset" Precision="7" />
+        </EntityType>
+        <EntityType Name="destrezasGrupos">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="deno" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="idusuariomod" Type="int" />
+          <Property Name="fechamod" Type="datetimeoffset" Precision="7" />
+        </EntityType>
+        <EntityType Name="destrezasNiveles">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="deno" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="idusuariomod" Type="int" />
+          <Property Name="fechamod" Type="datetimeoffset" Precision="7" />
+        </EntityType>
+        <EntityType Name="destrezasPersonas">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idDestreza" Type="int" Nullable="false" />
+          <Property Name="idPersona" Type="int" Nullable="false" />
+          <Property Name="valor" Type="int" />
+          <Property Name="nota" Type="ntext" />
+          <Property Name="fecha" Type="datetimeoffset" Precision="7" />
+          <Property Name="idusuariomod" Type="int" />
+          <Property Name="fechamod" Type="datetimeoffset" Precision="7" />
+        </EntityType>
+        <EntityType Name="entrenadores">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idPersona" Type="int" Nullable="false" />
+          <Property Name="idTipoEntrenador" Type="int" Nullable="false" />
+          <Property Name="idusuariomod" Type="int" />
+          <Property Name="fechamod" Type="datetimeoffset" Precision="7" />
+        </EntityType>
+        <EntityType Name="entrenamientos">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fecha" Type="datetimeoffset" Precision="7" Nullable="false" />
+          <Property Name="idCategoria" Type="int" Nullable="false" />
+          <Property Name="idClima" Type="int" Nullable="false" />
+          <Property Name="idEstadoCampo" Type="int" Nullable="false" />
+          <Property Name="idTipoSesion" Type="int" Nullable="false" />
+          <Property Name="notas" Type="ntext" />
+          <Property Name="idusuariomod" Type="int" />
+          <Property Name="fechamod" Type="datetimeoffset" Precision="7" />
+        </EntityType>
+        <EntityType Name="estadoCampos">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="deno" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="idusuariomod" Type="int" />
+          <Property Name="fechamod" Type="datetimeoffset" Precision="7" />
+        </EntityType>
+        <EntityType Name="eventos">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="hora" Type="datetimeoffset" Precision="7" Nullable="false" />
+          <Property Name="idsituacion" Type="int" Nullable="false" />
+          <Property Name="idpartido" Type="int" Nullable="false" />
+          <Property Name="idpersona" Type="int" Nullable="false" />
+          <Property Name="idcategoria" Type="int" Nullable="false" />
+          <Property Name="idvariable" Type="int" Nullable="false" />
+          <Property Name="idlugar" Type="int" Nullable="false" />
+          <Property Name="idusuariomod" Type="int" />
+          <Property Name="fechamod" Type="datetimeoffset" Precision="7" />
+        </EntityType>
+        <EntityType Name="jugadores">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idCategoria" Type="int" Nullable="false" />
+          <Property Name="idSocio" Type="int" Nullable="false" />
+          <Property Name="idusuariomod" Type="int" />
+          <Property Name="fechamod" Type="datetimeoffset" Precision="7" />
+        </EntityType>
+        <EntityType Name="localidades">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="deno" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="idusuariomod" Type="int" />
+          <Property Name="fechamod" Type="datetimeoffset" Precision="7" />
+        </EntityType>
+        <EntityType Name="lugares">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="deno" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="coordenada" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="idusuariomod" Type="int" />
+          <Property Name="fechamod" Type="datetimeoffset" Precision="7" />
+        </EntityType>
+        <EntityType Name="medidas">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idpersona" Type="int" Nullable="false" />
+          <Property Name="idcategoria" Type="int" Nullable="false" />
+          <Property Name="altura" Type="numeric" Precision="4" Scale="2" />
+          <Property Name="peso" Type="numeric" Precision="4" Scale="2" />
+          <Property Name="torg" Type="numeric" Precision="4" Scale="2" />
+          <Property Name="idusuariomod" Type="int" />
+          <Property Name="fechamod" Type="datetimeoffset" Precision="7" />
+        </EntityType>
+        <EntityType Name="pagos">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idPagoTipos" Type="int" Nullable="false" />
+          <Property Name="idPersona" Type="int" Nullable="false" />
+          <Property Name="concepto" Type="varchar" MaxLength="100" />
+          <Property Name="importe" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="mesimputar" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="idusuariomod" Type="int" />
+          <Property Name="fechamod" Type="datetimeoffset" Precision="7" />
+        </EntityType>
+        <EntityType Name="pagoTipos">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="importe" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="activo" Type="bit" Nullable="false" />
+          <Property Name="idusuariomod" Type="int" />
+          <Property Name="fechamod" Type="datetimeoffset" Precision="7" />
+        </EntityType>
+        <EntityType Name="partidos">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idcategoria" Type="int" Nullable="false" />
+          <Property Name="rival" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="fecha" Type="datetimeoffset" Precision="7" Nullable="false" />
+          <Property Name="nota" Type="varchar(max)" />
+          <Property Name="idclima" Type="int" Nullable="false" />
+          <Property Name="idusuariomod" Type="int" />
+          <Property Name="fechamod" Type="datetimeoffset" Precision="7" />
+        </EntityType>
+        <EntityType Name="personas">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="apellido" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="fecnac" Type="datetimeoffset" Precision="7" />
+          <Property Name="idTipoDocumento" Type="int" />
+          <Property Name="documento" Type="bigint" />
+          <Property Name="celular" Type="varchar" MaxLength="100" />
+          <Property Name="nota" Type="ntext" />
+          <Property Name="idTipoPersona" Type="int" />
+          <Property Name="calle" Type="varchar" MaxLength="255" />
+          <Property Name="numero" Type="int" />
+          <Property Name="piso" Type="varchar" MaxLength="100" />
+          <Property Name="depto" Type="varchar" MaxLength="100" />
+          <Property Name="codpos" Type="int" />
+          <Property Name="idLocalidad" Type="int" />
+          <Property Name="comollegar" Type="ntext" />
+          <Property Name="email" Type="varchar" MaxLength="255" />
+          <Property Name="facebook" Type="varchar" MaxLength="255" />
+          <Property Name="telefono" Type="varchar" MaxLength="255" />
+          <Property Name="activo" Type="char" MaxLength="1" />
+          <Property Name="idClub" Type="int" />
+          <Property Name="foto" Type="image" />
+          <Property Name="idusuariomod" Type="int" />
+          <Property Name="fechamod" Type="datetimeoffset" Precision="7" />
+        </EntityType>
+        <EntityType Name="posiciones">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="deno" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="siglas" Type="varchar" MaxLength="3" />
+          <Property Name="idusuariomod" Type="int" />
+          <Property Name="fechamod" Type="datetimeoffset" Precision="7" />
+        </EntityType>
+        <EntityType Name="posicionesPersonas">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idPersona" Type="int" Nullable="false" />
+          <Property Name="idPosicion1" Type="int" />
+          <Property Name="idPosicion2" Type="int" />
+          <Property Name="idPosicion3" Type="int" />
+          <Property Name="idTemporada" Type="int" />
+          <Property Name="nota" Type="ntext" />
+          <Property Name="idusuariomod" Type="int" />
+          <Property Name="fechamod" Type="datetimeoffset" Precision="7" />
+        </EntityType>
+        <EntityType Name="situaciones">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="deno" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="idusuariomod" Type="int" />
+          <Property Name="fechamod" Type="datetimeoffset" Precision="7" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="temporadas">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="deno" Type="varchar" MaxLength="50" />
+          <Property Name="ano" Type="char" MaxLength="4" />
+          <Property Name="activa" Type="bit" />
+          <Property Name="idusuariomod" Type="int" />
+          <Property Name="fechamod" Type="datetimeoffset" Precision="7" />
+        </EntityType>
+        <EntityType Name="tipoDocumentos">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="deno" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="idusuariomod" Type="int" />
+          <Property Name="fechamod" Type="datetimeoffset" Precision="7" />
+        </EntityType>
+        <EntityType Name="tipoEntrenador">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="deno" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="idusuariomod" Type="int" />
+          <Property Name="fechamod" Type="datetimeoffset" Precision="7" />
+        </EntityType>
+        <EntityType Name="tipoPersonas">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="deno" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="idusuariomod" Type="int" />
+          <Property Name="fechamod" Type="datetimeoffset" Precision="7" />
+        </EntityType>
+        <EntityType Name="tipoSesion">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="deno" Type="varchar" MaxLength="50" />
+          <Property Name="idusuariomod" Type="int" />
+          <Property Name="fechamod" Type="datetimeoffset" Precision="7" />
+        </EntityType>
+        <EntityType Name="usuarios">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="usuario" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="clave" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="idClub" Type="int" Nullable="false" />
+          <Property Name="idusuariomod" Type="int" />
+          <Property Name="fechamod" Type="datetimeoffset" Precision="7" />
+        </EntityType>
+        <EntityType Name="valores">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idvariable" Type="int" Nullable="false" />
+          <Property Name="deno" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="idusuariomod" Type="int" />
+          <Property Name="fechamod" Type="datetimeoffset" Precision="7" />
+        </EntityType>
+        <EntityType Name="variables">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="deno" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="idusuariomod" Type="int" />
+          <Property Name="fechamod" Type="datetimeoffset" Precision="7" />
+        </EntityType>
+        <Association Name="FK_asistenciaEntrenamientos_entrenamientos">
+          <End Role="entrenamientos" Type="Self.entrenamientos" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="asistenciaEntrenamientos" Type="Self.asistenciaEntrenamientos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="entrenamientos">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="asistenciaEntrenamientos">
+              <PropertyRef Name="idEntrenamiento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_categorias_temporadas">
+          <End Role="temporadas" Type="Self.temporadas" Multiplicity="1" />
+          <End Role="categorias" Type="Self.categorias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="temporadas">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="categorias">
+              <PropertyRef Name="idTemporada" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_categoriasPersonas_categorias">
+          <End Role="categorias" Type="Self.categorias" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="categoriasPersonas" Type="Self.categoriasPersonas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="categorias">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="categoriasPersonas">
+              <PropertyRef Name="idCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_categoriasPersonas_personas">
+          <End Role="personas" Type="Self.personas" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="categoriasPersonas" Type="Self.categoriasPersonas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="personas">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="categoriasPersonas">
+              <PropertyRef Name="idPersona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_destrezas_destrezasGrupos">
+          <End Role="destrezasGrupos" Type="Self.destrezasGrupos" Multiplicity="1" />
+          <End Role="destrezas" Type="Self.destrezas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="destrezasGrupos">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="destrezas">
+              <PropertyRef Name="idGrupo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_destrezas_destrezasNiveles">
+          <End Role="destrezasNiveles" Type="Self.destrezasNiveles" Multiplicity="1" />
+          <End Role="destrezas" Type="Self.destrezas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="destrezasNiveles">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="destrezas">
+              <PropertyRef Name="idNivel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_destrezasPersonas_destrezas">
+          <End Role="destrezas" Type="Self.destrezas" Multiplicity="1" />
+          <End Role="destrezasPersonas" Type="Self.destrezasPersonas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="destrezas">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="destrezasPersonas">
+              <PropertyRef Name="idDestreza" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_entrenadores_tipoEntrenador">
+          <End Role="tipoEntrenador" Type="Self.tipoEntrenador" Multiplicity="1" />
+          <End Role="entrenadores" Type="Self.entrenadores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipoEntrenador">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="entrenadores">
+              <PropertyRef Name="idTipoEntrenador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_entrenamientos_TipoSesion">
+          <End Role="tipoSesion" Type="Self.tipoSesion" Multiplicity="1" />
+          <End Role="entrenamientos" Type="Self.entrenamientos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipoSesion">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="entrenamientos">
+              <PropertyRef Name="idTipoSesion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_eventos_categorias">
+          <End Role="categorias" Type="Self.categorias" Multiplicity="1" />
+          <End Role="eventos" Type="Self.eventos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="categorias">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="eventos">
+              <PropertyRef Name="idcategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_eventos_lugares">
+          <End Role="lugares" Type="Self.lugares" Multiplicity="1" />
+          <End Role="eventos" Type="Self.eventos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lugares">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="eventos">
+              <PropertyRef Name="idlugar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_eventos_partidos">
+          <End Role="partidos" Type="Self.partidos" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="eventos" Type="Self.eventos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="partidos">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="eventos">
+              <PropertyRef Name="idpartido" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_eventos_personas">
+          <End Role="personas" Type="Self.personas" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="eventos" Type="Self.eventos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="personas">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="eventos">
+              <PropertyRef Name="idpersona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_eventos_situaciones">
+          <End Role="situaciones" Type="Self.situaciones" Multiplicity="1" />
+          <End Role="eventos" Type="Self.eventos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="situaciones">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="eventos">
+              <PropertyRef Name="idsituacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_medidas_categorias">
+          <End Role="categorias" Type="Self.categorias" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="medidas" Type="Self.medidas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="categorias">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="medidas">
+              <PropertyRef Name="idcategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_medidas_personas">
+          <End Role="personas" Type="Self.personas" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="medidas" Type="Self.medidas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="personas">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="medidas">
+              <PropertyRef Name="idpersona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pagos_PagoTipos">
+          <End Role="pagoTipos" Type="Self.pagoTipos" Multiplicity="1" />
+          <End Role="pagos" Type="Self.pagos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pagoTipos">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="pagos">
+              <PropertyRef Name="idPagoTipos" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pagos_personas">
+          <End Role="personas" Type="Self.personas" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="pagos" Type="Self.pagos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="personas">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="pagos">
+              <PropertyRef Name="idPersona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_partido_variables">
+          <End Role="variables" Type="Self.variables" Multiplicity="1" />
+          <End Role="eventos" Type="Self.eventos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="variables">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="eventos">
+              <PropertyRef Name="idvariable" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_partidos_categorias">
+          <End Role="categorias" Type="Self.categorias" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="partidos" Type="Self.partidos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="categorias">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="partidos">
+              <PropertyRef Name="idcategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_partidos_climas">
+          <End Role="climas" Type="Self.climas" Multiplicity="1" />
+          <End Role="partidos" Type="Self.partidos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="climas">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="partidos">
+              <PropertyRef Name="idclima" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_personas_clubes2">
+          <End Role="clubes" Type="Self.clubes" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="personas" Type="Self.personas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="clubes">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="personas">
+              <PropertyRef Name="idClub" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Personas_destrezasPersonas">
+          <End Role="personas" Type="Self.personas" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="destrezasPersonas" Type="Self.destrezasPersonas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="personas">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="destrezasPersonas">
+              <PropertyRef Name="idPersona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_personas_localidades">
+          <End Role="localidades" Type="Self.localidades" Multiplicity="0..1" />
+          <End Role="personas" Type="Self.personas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="localidades">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="personas">
+              <PropertyRef Name="idLocalidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_personas_tipopersonas">
+          <End Role="tipoPersonas" Type="Self.tipoPersonas" Multiplicity="0..1" />
+          <End Role="personas" Type="Self.personas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipoPersonas">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="personas">
+              <PropertyRef Name="idTipoPersona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_posicionesPersonas_personas">
+          <End Role="personas" Type="Self.personas" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="posicionesPersonas" Type="Self.posicionesPersonas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="personas">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="posicionesPersonas">
+              <PropertyRef Name="idPersona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_posicionesPersonas_posiciones">
+          <End Role="posiciones" Type="Self.posiciones" Multiplicity="0..1" />
+          <End Role="posicionesPersonas" Type="Self.posicionesPersonas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="posiciones">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="posicionesPersonas">
+              <PropertyRef Name="idPosicion1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_posicionesPersonas_posiciones1">
+          <End Role="posiciones" Type="Self.posiciones" Multiplicity="0..1" />
+          <End Role="posicionesPersonas" Type="Self.posicionesPersonas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="posiciones">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="posicionesPersonas">
+              <PropertyRef Name="idPosicion2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_posicionesPersonas_posiciones2">
+          <End Role="posiciones" Type="Self.posiciones" Multiplicity="0..1" />
+          <End Role="posicionesPersonas" Type="Self.posicionesPersonas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="posiciones">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="posicionesPersonas">
+              <PropertyRef Name="idPosicion3" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_posicionesPersonas_temporadas">
+          <End Role="temporadas" Type="Self.temporadas" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="posicionesPersonas" Type="Self.posicionesPersonas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="temporadas">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="posicionesPersonas">
+              <PropertyRef Name="idTemporada" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_usuarios_clubes1">
+          <End Role="clubes" Type="Self.clubes" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="usuarios" Type="Self.usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="clubes">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="usuarios">
+              <PropertyRef Name="idClub" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_valores_variables">
+          <End Role="variables" Type="Self.variables" Multiplicity="1" />
+          <End Role="valores" Type="Self.valores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="variables">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="valores">
+              <PropertyRef Name="idvariable" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKasistencia847340">
+          <End Role="personas" Type="Self.personas" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="asistenciaEntrenamientos" Type="Self.asistenciaEntrenamientos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="personas">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="asistenciaEntrenamientos">
+              <PropertyRef Name="idPersona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKcategoria947959">
+          <End Role="entrenadores" Type="Self.entrenadores" Multiplicity="1" />
+          <End Role="categorias" Type="Self.categorias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="entrenadores">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="categorias">
+              <PropertyRef Name="idEntrenador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKentrenamie165571">
+          <End Role="categorias" Type="Self.categorias" Multiplicity="1" />
+          <End Role="entrenamientos" Type="Self.entrenamientos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="categorias">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="entrenamientos">
+              <PropertyRef Name="idCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKentrenamie662203">
+          <End Role="estadoCampos" Type="Self.estadoCampos" Multiplicity="1" />
+          <End Role="entrenamientos" Type="Self.entrenamientos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="estadoCampos">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="entrenamientos">
+              <PropertyRef Name="idEstadoCampo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKentrenamie906345">
+          <End Role="climas" Type="Self.climas" Multiplicity="1" />
+          <End Role="entrenamientos" Type="Self.entrenamientos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="climas">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="entrenamientos">
+              <PropertyRef Name="idClima" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKjugador444801">
+          <End Role="categorias" Type="Self.categorias" Multiplicity="1" />
+          <End Role="jugadores" Type="Self.jugadores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="categorias">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="jugadores">
+              <PropertyRef Name="idCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKpersona347278">
+          <End Role="tipoDocumentos" Type="Self.tipoDocumentos" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="personas" Type="Self.personas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipoDocumentos">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="personas">
+              <PropertyRef Name="idTipoDocumento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SEGDEPWModelStoreContainer">
+          <EntitySet Name="asistenciaEntrenamientos" EntityType="Self.asistenciaEntrenamientos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="categorias" EntityType="Self.categorias" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="categoriasPersonas" EntityType="Self.categoriasPersonas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="climas" EntityType="Self.climas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="clubes" EntityType="Self.clubes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="destrezas" EntityType="Self.destrezas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="destrezasGrupos" EntityType="Self.destrezasGrupos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="destrezasNiveles" EntityType="Self.destrezasNiveles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="destrezasPersonas" EntityType="Self.destrezasPersonas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="entrenadores" EntityType="Self.entrenadores" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="entrenamientos" EntityType="Self.entrenamientos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="estadoCampos" EntityType="Self.estadoCampos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="eventos" EntityType="Self.eventos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="jugadores" EntityType="Self.jugadores" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="localidades" EntityType="Self.localidades" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="lugares" EntityType="Self.lugares" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="medidas" EntityType="Self.medidas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pagos" EntityType="Self.pagos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pagoTipos" EntityType="Self.pagoTipos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="partidos" EntityType="Self.partidos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="personas" EntityType="Self.personas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="posiciones" EntityType="Self.posiciones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="posicionesPersonas" EntityType="Self.posicionesPersonas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="situaciones" EntityType="Self.situaciones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="temporadas" EntityType="Self.temporadas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tipoDocumentos" EntityType="Self.tipoDocumentos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tipoEntrenador" EntityType="Self.tipoEntrenador" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tipoPersonas" EntityType="Self.tipoPersonas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tipoSesion" EntityType="Self.tipoSesion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="usuarios" EntityType="Self.usuarios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="valores" EntityType="Self.valores" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="variables" EntityType="Self.variables" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_asistenciaEntrenamientos_entrenamientos" Association="Self.FK_asistenciaEntrenamientos_entrenamientos">
+            <End Role="entrenamientos" EntitySet="entrenamientos" />
+            <End Role="asistenciaEntrenamientos" EntitySet="asistenciaEntrenamientos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_categorias_temporadas" Association="Self.FK_categorias_temporadas">
+            <End Role="temporadas" EntitySet="temporadas" />
+            <End Role="categorias" EntitySet="categorias" />
+          </AssociationSet>
+          <AssociationSet Name="FK_categoriasPersonas_categorias" Association="Self.FK_categoriasPersonas_categorias">
+            <End Role="categorias" EntitySet="categorias" />
+            <End Role="categoriasPersonas" EntitySet="categoriasPersonas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_categoriasPersonas_personas" Association="Self.FK_categoriasPersonas_personas">
+            <End Role="personas" EntitySet="personas" />
+            <End Role="categoriasPersonas" EntitySet="categoriasPersonas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_destrezas_destrezasGrupos" Association="Self.FK_destrezas_destrezasGrupos">
+            <End Role="destrezasGrupos" EntitySet="destrezasGrupos" />
+            <End Role="destrezas" EntitySet="destrezas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_destrezas_destrezasNiveles" Association="Self.FK_destrezas_destrezasNiveles">
+            <End Role="destrezasNiveles" EntitySet="destrezasNiveles" />
+            <End Role="destrezas" EntitySet="destrezas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_destrezasPersonas_destrezas" Association="Self.FK_destrezasPersonas_destrezas">
+            <End Role="destrezas" EntitySet="destrezas" />
+            <End Role="destrezasPersonas" EntitySet="destrezasPersonas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_entrenadores_tipoEntrenador" Association="Self.FK_entrenadores_tipoEntrenador">
+            <End Role="tipoEntrenador" EntitySet="tipoEntrenador" />
+            <End Role="entrenadores" EntitySet="entrenadores" />
+          </AssociationSet>
+          <AssociationSet Name="FK_entrenamientos_TipoSesion" Association="Self.FK_entrenamientos_TipoSesion">
+            <End Role="tipoSesion" EntitySet="tipoSesion" />
+            <End Role="entrenamientos" EntitySet="entrenamientos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_eventos_categorias" Association="Self.FK_eventos_categorias">
+            <End Role="categorias" EntitySet="categorias" />
+            <End Role="eventos" EntitySet="eventos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_eventos_lugares" Association="Self.FK_eventos_lugares">
+            <End Role="lugares" EntitySet="lugares" />
+            <End Role="eventos" EntitySet="eventos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_eventos_partidos" Association="Self.FK_eventos_partidos">
+            <End Role="partidos" EntitySet="partidos" />
+            <End Role="eventos" EntitySet="eventos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_eventos_personas" Association="Self.FK_eventos_personas">
+            <End Role="personas" EntitySet="personas" />
+            <End Role="eventos" EntitySet="eventos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_eventos_situaciones" Association="Self.FK_eventos_situaciones">
+            <End Role="situaciones" EntitySet="situaciones" />
+            <End Role="eventos" EntitySet="eventos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_medidas_categorias" Association="Self.FK_medidas_categorias">
+            <End Role="categorias" EntitySet="categorias" />
+            <End Role="medidas" EntitySet="medidas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_medidas_personas" Association="Self.FK_medidas_personas">
+            <End Role="personas" EntitySet="personas" />
+            <End Role="medidas" EntitySet="medidas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pagos_PagoTipos" Association="Self.FK_Pagos_PagoTipos">
+            <End Role="pagoTipos" EntitySet="pagoTipos" />
+            <End Role="pagos" EntitySet="pagos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pagos_personas" Association="Self.FK_Pagos_personas">
+            <End Role="personas" EntitySet="personas" />
+            <End Role="pagos" EntitySet="pagos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_partido_variables" Association="Self.FK_partido_variables">
+            <End Role="variables" EntitySet="variables" />
+            <End Role="eventos" EntitySet="eventos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_partidos_categorias" Association="Self.FK_partidos_categorias">
+            <End Role="categorias" EntitySet="categorias" />
+            <End Role="partidos" EntitySet="partidos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_partidos_climas" Association="Self.FK_partidos_climas">
+            <End Role="climas" EntitySet="climas" />
+            <End Role="partidos" EntitySet="partidos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_personas_clubes2" Association="Self.FK_personas_clubes2">
+            <End Role="clubes" EntitySet="clubes" />
+            <End Role="personas" EntitySet="personas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Personas_destrezasPersonas" Association="Self.FK_Personas_destrezasPersonas">
+            <End Role="personas" EntitySet="personas" />
+            <End Role="destrezasPersonas" EntitySet="destrezasPersonas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_personas_localidades" Association="Self.FK_personas_localidades">
+            <End Role="localidades" EntitySet="localidades" />
+            <End Role="personas" EntitySet="personas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_personas_tipopersonas" Association="Self.FK_personas_tipopersonas">
+            <End Role="tipoPersonas" EntitySet="tipoPersonas" />
+            <End Role="personas" EntitySet="personas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_posicionesPersonas_personas" Association="Self.FK_posicionesPersonas_personas">
+            <End Role="personas" EntitySet="personas" />
+            <End Role="posicionesPersonas" EntitySet="posicionesPersonas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_posicionesPersonas_posiciones" Association="Self.FK_posicionesPersonas_posiciones">
+            <End Role="posiciones" EntitySet="posiciones" />
+            <End Role="posicionesPersonas" EntitySet="posicionesPersonas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_posicionesPersonas_posiciones1" Association="Self.FK_posicionesPersonas_posiciones1">
+            <End Role="posiciones" EntitySet="posiciones" />
+            <End Role="posicionesPersonas" EntitySet="posicionesPersonas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_posicionesPersonas_posiciones2" Association="Self.FK_posicionesPersonas_posiciones2">
+            <End Role="posiciones" EntitySet="posiciones" />
+            <End Role="posicionesPersonas" EntitySet="posicionesPersonas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_posicionesPersonas_temporadas" Association="Self.FK_posicionesPersonas_temporadas">
+            <End Role="temporadas" EntitySet="temporadas" />
+            <End Role="posicionesPersonas" EntitySet="posicionesPersonas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_usuarios_clubes1" Association="Self.FK_usuarios_clubes1">
+            <End Role="clubes" EntitySet="clubes" />
+            <End Role="usuarios" EntitySet="usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_valores_variables" Association="Self.FK_valores_variables">
+            <End Role="variables" EntitySet="variables" />
+            <End Role="valores" EntitySet="valores" />
+          </AssociationSet>
+          <AssociationSet Name="FKasistencia847340" Association="Self.FKasistencia847340">
+            <End Role="personas" EntitySet="personas" />
+            <End Role="asistenciaEntrenamientos" EntitySet="asistenciaEntrenamientos" />
+          </AssociationSet>
+          <AssociationSet Name="FKcategoria947959" Association="Self.FKcategoria947959">
+            <End Role="entrenadores" EntitySet="entrenadores" />
+            <End Role="categorias" EntitySet="categorias" />
+          </AssociationSet>
+          <AssociationSet Name="FKentrenamie165571" Association="Self.FKentrenamie165571">
+            <End Role="categorias" EntitySet="categorias" />
+            <End Role="entrenamientos" EntitySet="entrenamientos" />
+          </AssociationSet>
+          <AssociationSet Name="FKentrenamie662203" Association="Self.FKentrenamie662203">
+            <End Role="estadoCampos" EntitySet="estadoCampos" />
+            <End Role="entrenamientos" EntitySet="entrenamientos" />
+          </AssociationSet>
+          <AssociationSet Name="FKentrenamie906345" Association="Self.FKentrenamie906345">
+            <End Role="climas" EntitySet="climas" />
+            <End Role="entrenamientos" EntitySet="entrenamientos" />
+          </AssociationSet>
+          <AssociationSet Name="FKjugador444801" Association="Self.FKjugador444801">
+            <End Role="categorias" EntitySet="categorias" />
+            <End Role="jugadores" EntitySet="jugadores" />
+          </AssociationSet>
+          <AssociationSet Name="FKpersona347278" Association="Self.FKpersona347278">
+            <End Role="tipoDocumentos" EntitySet="tipoDocumentos" />
+            <End Role="personas" EntitySet="personas" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SEGDEPWModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="asistenciaEntrenamientos">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idEntrenamiento" Type="Int32" Nullable="false" />
+          <Property Name="idPersona" Type="Int32" Nullable="false" />
+          <Property Name="asistencia" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="nota" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="idusuariomod" Type="Int32" />
+          <Property Name="fechamod" Type="DateTimeOffset" Precision="7" />
+          <NavigationProperty Name="entrenamientos" Relationship="Self.FK_asistenciaEntrenamientos_entrenamientos" FromRole="asistenciaEntrenamientos" ToRole="entrenamientos" />
+          <NavigationProperty Name="personas" Relationship="Self.FKasistencia847340" FromRole="asistenciaEntrenamientos" ToRole="personas" />
+        </EntityType>
+        <EntityType Name="categorias">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="deno" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="fechaalta" Type="DateTimeOffset" Nullable="false" Precision="7" />
+          <Property Name="idEntrenador" Type="Int32" Nullable="false" />
+          <Property Name="idTemporada" Type="Int32" Nullable="false" />
+          <Property Name="idusuariomod" Type="Int32" />
+          <Property Name="fechamod" Type="DateTimeOffset" Precision="7" />
+          <NavigationProperty Name="temporadas" Relationship="Self.FK_categorias_temporadas" FromRole="categorias" ToRole="temporadas" />
+          <NavigationProperty Name="categoriasPersonas" Relationship="Self.FK_categoriasPersonas_categorias" FromRole="categorias" ToRole="categoriasPersonas" />
+          <NavigationProperty Name="eventos" Relationship="Self.FK_eventos_categorias" FromRole="categorias" ToRole="eventos" />
+          <NavigationProperty Name="medidas" Relationship="Self.FK_medidas_categorias" FromRole="categorias" ToRole="medidas" />
+          <NavigationProperty Name="partidos" Relationship="Self.FK_partidos_categorias" FromRole="categorias" ToRole="partidos" />
+          <NavigationProperty Name="entrenadores" Relationship="Self.FKcategoria947959" FromRole="categorias" ToRole="entrenadores" />
+          <NavigationProperty Name="entrenamientos" Relationship="Self.FKentrenamie165571" FromRole="categorias" ToRole="entrenamientos" />
+          <NavigationProperty Name="jugadores" Relationship="Self.FKjugador444801" FromRole="categorias" ToRole="jugadores" />
+        </EntityType>
+        <EntityType Name="categoriasPersonas">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idPersona" Type="Int32" Nullable="false" />
+          <Property Name="idCategoria" Type="Int32" Nullable="false" />
+          <Property Name="idusuariomod" Type="Int32" />
+          <Property Name="fechamod" Type="DateTimeOffset" Precision="7" />
+          <NavigationProperty Name="categorias" Relationship="Self.FK_categoriasPersonas_categorias" FromRole="categoriasPersonas" ToRole="categorias" />
+          <NavigationProperty Name="personas" Relationship="Self.FK_categoriasPersonas_personas" FromRole="categoriasPersonas" ToRole="personas" />
+        </EntityType>
+        <EntityType Name="climas">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="deno" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idusuariomod" Type="Int32" />
+          <Property Name="fechamod" Type="DateTimeOffset" Precision="7" />
+          <NavigationProperty Name="partidos" Relationship="Self.FK_partidos_climas" FromRole="climas" ToRole="partidos" />
+          <NavigationProperty Name="entrenamientos" Relationship="Self.FKentrenamie906345" FromRole="climas" ToRole="entrenamientos" />
+        </EntityType>
+        <EntityType Name="clubes">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="deno" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idusuariomod" Type="Int32" />
+          <Property Name="fechamod" Type="DateTimeOffset" Precision="7" />
+          <NavigationProperty Name="personas" Relationship="Self.FK_personas_clubes2" FromRole="clubes" ToRole="personas" />
+          <NavigationProperty Name="usuarios" Relationship="Self.FK_usuarios_clubes1" FromRole="clubes" ToRole="usuarios" />
+        </EntityType>
+        <EntityType Name="destrezas">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="deno" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idNivel" Type="Int32" Nullable="false" />
+          <Property Name="idGrupo" Type="Int32" Nullable="false" />
+          <Property Name="nota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="idusuariomod" Type="Int32" />
+          <Property Name="fechamod" Type="DateTimeOffset" Precision="7" />
+          <NavigationProperty Name="destrezasGrupos" Relationship="Self.FK_destrezas_destrezasGrupos" FromRole="destrezas" ToRole="destrezasGrupos" />
+          <NavigationProperty Name="destrezasNiveles" Relationship="Self.FK_destrezas_destrezasNiveles" FromRole="destrezas" ToRole="destrezasNiveles" />
+          <NavigationProperty Name="destrezasPersonas" Relationship="Self.FK_destrezasPersonas_destrezas" FromRole="destrezas" ToRole="destrezasPersonas" />
+        </EntityType>
+        <EntityType Name="destrezasGrupos">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="deno" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idusuariomod" Type="Int32" />
+          <Property Name="fechamod" Type="DateTimeOffset" Precision="7" />
+          <NavigationProperty Name="destrezas" Relationship="Self.FK_destrezas_destrezasGrupos" FromRole="destrezasGrupos" ToRole="destrezas" />
+        </EntityType>
+        <EntityType Name="destrezasNiveles">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="deno" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idusuariomod" Type="Int32" />
+          <Property Name="fechamod" Type="DateTimeOffset" Precision="7" />
+          <NavigationProperty Name="destrezas" Relationship="Self.FK_destrezas_destrezasNiveles" FromRole="destrezasNiveles" ToRole="destrezas" />
+        </EntityType>
+        <EntityType Name="destrezasPersonas">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idDestreza" Type="Int32" Nullable="false" />
+          <Property Name="idPersona" Type="Int32" Nullable="false" />
+          <Property Name="valor" Type="Int32" />
+          <Property Name="nota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="fecha" Type="DateTimeOffset" Precision="7" />
+          <Property Name="idusuariomod" Type="Int32" />
+          <Property Name="fechamod" Type="DateTimeOffset" Precision="7" />
+          <NavigationProperty Name="destrezas" Relationship="Self.FK_destrezasPersonas_destrezas" FromRole="destrezasPersonas" ToRole="destrezas" />
+          <NavigationProperty Name="personas" Relationship="Self.FK_Personas_destrezasPersonas" FromRole="destrezasPersonas" ToRole="personas" />
+        </EntityType>
+        <EntityType Name="entrenadores">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idPersona" Type="Int32" Nullable="false" />
+          <Property Name="idTipoEntrenador" Type="Int32" Nullable="false" />
+          <Property Name="idusuariomod" Type="Int32" />
+          <Property Name="fechamod" Type="DateTimeOffset" Precision="7" />
+          <NavigationProperty Name="categorias" Relationship="Self.FKcategoria947959" FromRole="entrenadores" ToRole="categorias" />
+          <NavigationProperty Name="tipoEntrenador" Relationship="Self.FK_entrenadores_tipoEntrenador" FromRole="entrenadores" ToRole="tipoEntrenador" />
+        </EntityType>
+        <EntityType Name="entrenamientos">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fecha" Type="DateTimeOffset" Nullable="false" Precision="7" />
+          <Property Name="idCategoria" Type="Int32" Nullable="false" />
+          <Property Name="idClima" Type="Int32" Nullable="false" />
+          <Property Name="idEstadoCampo" Type="Int32" Nullable="false" />
+          <Property Name="idTipoSesion" Type="Int32" Nullable="false" />
+          <Property Name="notas" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="idusuariomod" Type="Int32" />
+          <Property Name="fechamod" Type="DateTimeOffset" Precision="7" />
+          <NavigationProperty Name="asistenciaEntrenamientos" Relationship="Self.FK_asistenciaEntrenamientos_entrenamientos" FromRole="entrenamientos" ToRole="asistenciaEntrenamientos" />
+          <NavigationProperty Name="categorias" Relationship="Self.FKentrenamie165571" FromRole="entrenamientos" ToRole="categorias" />
+          <NavigationProperty Name="climas" Relationship="Self.FKentrenamie906345" FromRole="entrenamientos" ToRole="climas" />
+          <NavigationProperty Name="tipoSesion" Relationship="Self.FK_entrenamientos_TipoSesion" FromRole="entrenamientos" ToRole="tipoSesion" />
+          <NavigationProperty Name="estadoCampos" Relationship="Self.FKentrenamie662203" FromRole="entrenamientos" ToRole="estadoCampos" />
+        </EntityType>
+        <EntityType Name="estadoCampos">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="deno" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idusuariomod" Type="Int32" />
+          <Property Name="fechamod" Type="DateTimeOffset" Precision="7" />
+          <NavigationProperty Name="entrenamientos" Relationship="Self.FKentrenamie662203" FromRole="estadoCampos" ToRole="entrenamientos" />
+        </EntityType>
+        <EntityType Name="eventos">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="hora" Type="DateTimeOffset" Nullable="false" Precision="7" />
+          <Property Name="idsituacion" Type="Int32" Nullable="false" />
+          <Property Name="idpartido" Type="Int32" Nullable="false" />
+          <Property Name="idpersona" Type="Int32" Nullable="false" />
+          <Property Name="idcategoria" Type="Int32" Nullable="false" />
+          <Property Name="idvariable" Type="Int32" Nullable="false" />
+          <Property Name="idlugar" Type="Int32" Nullable="false" />
+          <Property Name="idusuariomod" Type="Int32" />
+          <Property Name="fechamod" Type="DateTimeOffset" Precision="7" />
+          <NavigationProperty Name="categorias" Relationship="Self.FK_eventos_categorias" FromRole="eventos" ToRole="categorias" />
+          <NavigationProperty Name="lugares" Relationship="Self.FK_eventos_lugares" FromRole="eventos" ToRole="lugares" />
+          <NavigationProperty Name="partidos" Relationship="Self.FK_eventos_partidos" FromRole="eventos" ToRole="partidos" />
+          <NavigationProperty Name="personas" Relationship="Self.FK_eventos_personas" FromRole="eventos" ToRole="personas" />
+          <NavigationProperty Name="situaciones" Relationship="Self.FK_eventos_situaciones" FromRole="eventos" ToRole="situaciones" />
+          <NavigationProperty Name="variables" Relationship="Self.FK_partido_variables" FromRole="eventos" ToRole="variables" />
+        </EntityType>
+        <EntityType Name="jugadores">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idCategoria" Type="Int32" Nullable="false" />
+          <Property Name="idSocio" Type="Int32" Nullable="false" />
+          <Property Name="idusuariomod" Type="Int32" />
+          <Property Name="fechamod" Type="DateTimeOffset" Precision="7" />
+          <NavigationProperty Name="categorias" Relationship="Self.FKjugador444801" FromRole="jugadores" ToRole="categorias" />
+        </EntityType>
+        <EntityType Name="localidades">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="deno" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idusuariomod" Type="Int32" />
+          <Property Name="fechamod" Type="DateTimeOffset" Precision="7" />
+          <NavigationProperty Name="personas" Relationship="Self.FK_personas_localidades" FromRole="localidades" ToRole="personas" />
+        </EntityType>
+        <EntityType Name="lugares">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="deno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="coordenada" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idusuariomod" Type="Int32" />
+          <Property Name="fechamod" Type="DateTimeOffset" Precision="7" />
+          <NavigationProperty Name="eventos" Relationship="Self.FK_eventos_lugares" FromRole="lugares" ToRole="eventos" />
+        </EntityType>
+        <EntityType Name="medidas">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idpersona" Type="Int32" Nullable="false" />
+          <Property Name="idcategoria" Type="Int32" Nullable="false" />
+          <Property Name="altura" Type="Decimal" Precision="4" Scale="2" />
+          <Property Name="peso" Type="Decimal" Precision="4" Scale="2" />
+          <Property Name="torg" Type="Decimal" Precision="4" Scale="2" />
+          <Property Name="idusuariomod" Type="Int32" />
+          <Property Name="fechamod" Type="DateTimeOffset" Precision="7" />
+          <NavigationProperty Name="categorias" Relationship="Self.FK_medidas_categorias" FromRole="medidas" ToRole="categorias" />
+          <NavigationProperty Name="personas" Relationship="Self.FK_medidas_personas" FromRole="medidas" ToRole="personas" />
+        </EntityType>
+        <EntityType Name="pagos">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idPagoTipos" Type="Int32" Nullable="false" />
+          <Property Name="idPersona" Type="Int32" Nullable="false" />
+          <Property Name="concepto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="importe" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="mesimputar" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idusuariomod" Type="Int32" />
+          <Property Name="fechamod" Type="DateTimeOffset" Precision="7" />
+          <NavigationProperty Name="pagoTipos" Relationship="Self.FK_Pagos_PagoTipos" FromRole="pagos" ToRole="pagoTipos" />
+          <NavigationProperty Name="personas" Relationship="Self.FK_Pagos_personas" FromRole="pagos" ToRole="personas" />
+        </EntityType>
+        <EntityType Name="pagoTipos">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="importe" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="activo" Type="Boolean" Nullable="false" />
+          <Property Name="idusuariomod" Type="Int32" />
+          <Property Name="fechamod" Type="DateTimeOffset" Precision="7" />
+          <NavigationProperty Name="pagos" Relationship="Self.FK_Pagos_PagoTipos" FromRole="pagoTipos" ToRole="pagos" />
+        </EntityType>
+        <EntityType Name="partidos">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idcategoria" Type="Int32" Nullable="false" />
+          <Property Name="rival" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fecha" Type="DateTimeOffset" Nullable="false" Precision="7" />
+          <Property Name="nota" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="idclima" Type="Int32" Nullable="false" />
+          <Property Name="idusuariomod" Type="Int32" />
+          <Property Name="fechamod" Type="DateTimeOffset" Precision="7" />
+          <NavigationProperty Name="categorias" Relationship="Self.FK_partidos_categorias" FromRole="partidos" ToRole="categorias" />
+          <NavigationProperty Name="climas" Relationship="Self.FK_partidos_climas" FromRole="partidos" ToRole="climas" />
+          <NavigationProperty Name="eventos" Relationship="Self.FK_eventos_partidos" FromRole="partidos" ToRole="eventos" />
+        </EntityType>
+        <EntityType Name="personas">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apellido" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fecnac" Type="DateTimeOffset" Precision="7" />
+          <Property Name="idTipoDocumento" Type="Int32" />
+          <Property Name="documento" Type="Int64" />
+          <Property Name="celular" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="nota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="idTipoPersona" Type="Int32" />
+          <Property Name="calle" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="numero" Type="Int32" />
+          <Property Name="piso" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="depto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="codpos" Type="Int32" />
+          <Property Name="idLocalidad" Type="Int32" />
+          <Property Name="comollegar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="facebook" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="telefono" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="activo" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="idClub" Type="Int32" />
+          <Property Name="foto" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="idusuariomod" Type="Int32" />
+          <Property Name="fechamod" Type="DateTimeOffset" Precision="7" />
+          <NavigationProperty Name="asistenciaEntrenamientos" Relationship="Self.FKasistencia847340" FromRole="personas" ToRole="asistenciaEntrenamientos" />
+          <NavigationProperty Name="categoriasPersonas" Relationship="Self.FK_categoriasPersonas_personas" FromRole="personas" ToRole="categoriasPersonas" />
+          <NavigationProperty Name="clubes" Relationship="Self.FK_personas_clubes2" FromRole="personas" ToRole="clubes" />
+          <NavigationProperty Name="destrezasPersonas" Relationship="Self.FK_Personas_destrezasPersonas" FromRole="personas" ToRole="destrezasPersonas" />
+          <NavigationProperty Name="eventos" Relationship="Self.FK_eventos_personas" FromRole="personas" ToRole="eventos" />
+          <NavigationProperty Name="localidades" Relationship="Self.FK_personas_localidades" FromRole="personas" ToRole="localidades" />
+          <NavigationProperty Name="medidas" Relationship="Self.FK_medidas_personas" FromRole="personas" ToRole="medidas" />
+          <NavigationProperty Name="pagos" Relationship="Self.FK_Pagos_personas" FromRole="personas" ToRole="pagos" />
+          <NavigationProperty Name="tipoPersonas" Relationship="Self.FK_personas_tipopersonas" FromRole="personas" ToRole="tipoPersonas" />
+          <NavigationProperty Name="posicionesPersonas" Relationship="Self.FK_posicionesPersonas_personas" FromRole="personas" ToRole="posicionesPersonas" />
+          <NavigationProperty Name="tipoDocumentos" Relationship="Self.FKpersona347278" FromRole="personas" ToRole="tipoDocumentos" />
+        </EntityType>
+        <EntityType Name="posiciones">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="deno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="siglas" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="idusuariomod" Type="Int32" />
+          <Property Name="fechamod" Type="DateTimeOffset" Precision="7" />
+          <NavigationProperty Name="posicionesPersonas" Relationship="Self.FK_posicionesPersonas_posiciones" FromRole="posiciones" ToRole="posicionesPersonas" />
+          <NavigationProperty Name="posicionesPersonas1" Relationship="Self.FK_posicionesPersonas_posiciones1" FromRole="posiciones" ToRole="posicionesPersonas" />
+          <NavigationProperty Name="posicionesPersonas2" Relationship="Self.FK_posicionesPersonas_posiciones2" FromRole="posiciones" ToRole="posicionesPersonas" />
+        </EntityType>
+        <EntityType Name="posicionesPersonas">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idPersona" Type="Int32" Nullable="false" />
+          <Property Name="idPosicion1" Type="Int32" />
+          <Property Name="idPosicion2" Type="Int32" />
+          <Property Name="idPosicion3" Type="Int32" />
+          <Property Name="idTemporada" Type="Int32" />
+          <Property Name="nota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="idusuariomod" Type="Int32" />
+          <Property Name="fechamod" Type="DateTimeOffset" Precision="7" />
+          <NavigationProperty Name="personas" Relationship="Self.FK_posicionesPersonas_personas" FromRole="posicionesPersonas" ToRole="personas" />
+          <NavigationProperty Name="posiciones" Relationship="Self.FK_posicionesPersonas_posiciones" FromRole="posicionesPersonas" ToRole="posiciones" />
+          <NavigationProperty Name="posiciones1" Relationship="Self.FK_posicionesPersonas_posiciones1" FromRole="posicionesPersonas" ToRole="posiciones" />
+          <NavigationProperty Name="posiciones2" Relationship="Self.FK_posicionesPersonas_posiciones2" FromRole="posicionesPersonas" ToRole="posiciones" />
+          <NavigationProperty Name="temporadas" Relationship="Self.FK_posicionesPersonas_temporadas" FromRole="posicionesPersonas" ToRole="temporadas" />
+        </EntityType>
+        <EntityType Name="situaciones">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="deno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idusuariomod" Type="Int32" />
+          <Property Name="fechamod" Type="DateTimeOffset" Precision="7" />
+          <NavigationProperty Name="eventos" Relationship="Self.FK_eventos_situaciones" FromRole="situaciones" ToRole="eventos" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="temporadas">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="deno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ano" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="activa" Type="Boolean" />
+          <Property Name="idusuariomod" Type="Int32" />
+          <Property Name="fechamod" Type="DateTimeOffset" Precision="7" />
+          <NavigationProperty Name="categorias" Relationship="Self.FK_categorias_temporadas" FromRole="temporadas" ToRole="categorias" />
+          <NavigationProperty Name="posicionesPersonas" Relationship="Self.FK_posicionesPersonas_temporadas" FromRole="temporadas" ToRole="posicionesPersonas" />
+        </EntityType>
+        <EntityType Name="tipoDocumentos">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="deno" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idusuariomod" Type="Int32" />
+          <Property Name="fechamod" Type="DateTimeOffset" Precision="7" />
+          <NavigationProperty Name="personas" Relationship="Self.FKpersona347278" FromRole="tipoDocumentos" ToRole="personas" />
+        </EntityType>
+        <EntityType Name="tipoEntrenador">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="deno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idusuariomod" Type="Int32" />
+          <Property Name="fechamod" Type="DateTimeOffset" Precision="7" />
+          <NavigationProperty Name="entrenadores" Relationship="Self.FK_entrenadores_tipoEntrenador" FromRole="tipoEntrenador" ToRole="entrenadores" />
+        </EntityType>
+        <EntityType Name="tipoPersonas">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="deno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idusuariomod" Type="Int32" />
+          <Property Name="fechamod" Type="DateTimeOffset" Precision="7" />
+          <NavigationProperty Name="personas" Relationship="Self.FK_personas_tipopersonas" FromRole="tipoPersonas" ToRole="personas" />
+        </EntityType>
+        <EntityType Name="tipoSesion">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="deno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="idusuariomod" Type="Int32" />
+          <Property Name="fechamod" Type="DateTimeOffset" Precision="7" />
+          <NavigationProperty Name="entrenamientos" Relationship="Self.FK_entrenamientos_TipoSesion" FromRole="tipoSesion" ToRole="entrenamientos" />
+        </EntityType>
+        <EntityType Name="usuarios">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="usuario" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="clave" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idClub" Type="Int32" Nullable="false" />
+          <Property Name="idusuariomod" Type="Int32" />
+          <Property Name="fechamod" Type="DateTimeOffset" Precision="7" />
+          <NavigationProperty Name="clubes" Relationship="Self.FK_usuarios_clubes1" FromRole="usuarios" ToRole="clubes" />
+        </EntityType>
+        <EntityType Name="valores">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idvariable" Type="Int32" Nullable="false" />
+          <Property Name="deno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idusuariomod" Type="Int32" />
+          <Property Name="fechamod" Type="DateTimeOffset" Precision="7" />
+          <NavigationProperty Name="variables" Relationship="Self.FK_valores_variables" FromRole="valores" ToRole="variables" />
+        </EntityType>
+        <EntityType Name="variables">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="deno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idusuariomod" Type="Int32" />
+          <Property Name="fechamod" Type="DateTimeOffset" Precision="7" />
+          <NavigationProperty Name="eventos" Relationship="Self.FK_partido_variables" FromRole="variables" ToRole="eventos" />
+          <NavigationProperty Name="valores" Relationship="Self.FK_valores_variables" FromRole="variables" ToRole="valores" />
+        </EntityType>
+        <Association Name="FK_asistenciaEntrenamientos_entrenamientos">
+          <End Role="entrenamientos" Type="Self.entrenamientos" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="asistenciaEntrenamientos" Type="Self.asistenciaEntrenamientos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="entrenamientos">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="asistenciaEntrenamientos">
+              <PropertyRef Name="idEntrenamiento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKasistencia847340">
+          <End Role="personas" Type="Self.personas" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="asistenciaEntrenamientos" Type="Self.asistenciaEntrenamientos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="personas">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="asistenciaEntrenamientos">
+              <PropertyRef Name="idPersona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_categorias_temporadas">
+          <End Role="temporadas" Type="Self.temporadas" Multiplicity="1" />
+          <End Role="categorias" Type="Self.categorias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="temporadas">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="categorias">
+              <PropertyRef Name="idTemporada" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_categoriasPersonas_categorias">
+          <End Role="categorias" Type="Self.categorias" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="categoriasPersonas" Type="Self.categoriasPersonas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="categorias">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="categoriasPersonas">
+              <PropertyRef Name="idCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_eventos_categorias">
+          <End Role="categorias" Type="Self.categorias" Multiplicity="1" />
+          <End Role="eventos" Type="Self.eventos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="categorias">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="eventos">
+              <PropertyRef Name="idcategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_medidas_categorias">
+          <End Role="categorias" Type="Self.categorias" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="medidas" Type="Self.medidas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="categorias">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="medidas">
+              <PropertyRef Name="idcategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_partidos_categorias">
+          <End Role="categorias" Type="Self.categorias" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="partidos" Type="Self.partidos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="categorias">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="partidos">
+              <PropertyRef Name="idcategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKcategoria947959">
+          <End Role="entrenadores" Type="Self.entrenadores" Multiplicity="1" />
+          <End Role="categorias" Type="Self.categorias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="entrenadores">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="categorias">
+              <PropertyRef Name="idEntrenador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKentrenamie165571">
+          <End Role="categorias" Type="Self.categorias" Multiplicity="1" />
+          <End Role="entrenamientos" Type="Self.entrenamientos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="categorias">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="entrenamientos">
+              <PropertyRef Name="idCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKjugador444801">
+          <End Role="categorias" Type="Self.categorias" Multiplicity="1" />
+          <End Role="jugadores" Type="Self.jugadores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="categorias">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="jugadores">
+              <PropertyRef Name="idCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_categoriasPersonas_personas">
+          <End Role="personas" Type="Self.personas" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="categoriasPersonas" Type="Self.categoriasPersonas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="personas">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="categoriasPersonas">
+              <PropertyRef Name="idPersona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_partidos_climas">
+          <End Role="climas" Type="Self.climas" Multiplicity="1" />
+          <End Role="partidos" Type="Self.partidos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="climas">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="partidos">
+              <PropertyRef Name="idclima" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKentrenamie906345">
+          <End Role="climas" Type="Self.climas" Multiplicity="1" />
+          <End Role="entrenamientos" Type="Self.entrenamientos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="climas">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="entrenamientos">
+              <PropertyRef Name="idClima" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_personas_clubes2">
+          <End Role="clubes" Type="Self.clubes" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="personas" Type="Self.personas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="clubes">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="personas">
+              <PropertyRef Name="idClub" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_usuarios_clubes1">
+          <End Role="clubes" Type="Self.clubes" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="usuarios" Type="Self.usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="clubes">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="usuarios">
+              <PropertyRef Name="idClub" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_destrezas_destrezasGrupos">
+          <End Role="destrezasGrupos" Type="Self.destrezasGrupos" Multiplicity="1" />
+          <End Role="destrezas" Type="Self.destrezas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="destrezasGrupos">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="destrezas">
+              <PropertyRef Name="idGrupo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_destrezas_destrezasNiveles">
+          <End Role="destrezasNiveles" Type="Self.destrezasNiveles" Multiplicity="1" />
+          <End Role="destrezas" Type="Self.destrezas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="destrezasNiveles">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="destrezas">
+              <PropertyRef Name="idNivel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_destrezasPersonas_destrezas">
+          <End Role="destrezas" Type="Self.destrezas" Multiplicity="1" />
+          <End Role="destrezasPersonas" Type="Self.destrezasPersonas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="destrezas">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="destrezasPersonas">
+              <PropertyRef Name="idDestreza" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Personas_destrezasPersonas">
+          <End Role="personas" Type="Self.personas" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="destrezasPersonas" Type="Self.destrezasPersonas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="personas">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="destrezasPersonas">
+              <PropertyRef Name="idPersona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_entrenadores_tipoEntrenador">
+          <End Role="tipoEntrenador" Type="Self.tipoEntrenador" Multiplicity="1" />
+          <End Role="entrenadores" Type="Self.entrenadores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipoEntrenador">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="entrenadores">
+              <PropertyRef Name="idTipoEntrenador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_entrenamientos_TipoSesion">
+          <End Role="tipoSesion" Type="Self.tipoSesion" Multiplicity="1" />
+          <End Role="entrenamientos" Type="Self.entrenamientos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipoSesion">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="entrenamientos">
+              <PropertyRef Name="idTipoSesion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKentrenamie662203">
+          <End Role="estadoCampos" Type="Self.estadoCampos" Multiplicity="1" />
+          <End Role="entrenamientos" Type="Self.entrenamientos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="estadoCampos">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="entrenamientos">
+              <PropertyRef Name="idEstadoCampo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_eventos_lugares">
+          <End Role="lugares" Type="Self.lugares" Multiplicity="1" />
+          <End Role="eventos" Type="Self.eventos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lugares">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="eventos">
+              <PropertyRef Name="idlugar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_eventos_partidos">
+          <End Role="partidos" Type="Self.partidos" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="eventos" Type="Self.eventos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="partidos">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="eventos">
+              <PropertyRef Name="idpartido" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_eventos_personas">
+          <End Role="personas" Type="Self.personas" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="eventos" Type="Self.eventos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="personas">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="eventos">
+              <PropertyRef Name="idpersona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_eventos_situaciones">
+          <End Role="situaciones" Type="Self.situaciones" Multiplicity="1" />
+          <End Role="eventos" Type="Self.eventos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="situaciones">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="eventos">
+              <PropertyRef Name="idsituacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_partido_variables">
+          <End Role="variables" Type="Self.variables" Multiplicity="1" />
+          <End Role="eventos" Type="Self.eventos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="variables">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="eventos">
+              <PropertyRef Name="idvariable" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_personas_localidades">
+          <End Role="localidades" Type="Self.localidades" Multiplicity="0..1" />
+          <End Role="personas" Type="Self.personas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="localidades">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="personas">
+              <PropertyRef Name="idLocalidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_medidas_personas">
+          <End Role="personas" Type="Self.personas" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="medidas" Type="Self.medidas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="personas">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="medidas">
+              <PropertyRef Name="idpersona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pagos_PagoTipos">
+          <End Role="pagoTipos" Type="Self.pagoTipos" Multiplicity="1" />
+          <End Role="pagos" Type="Self.pagos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pagoTipos">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="pagos">
+              <PropertyRef Name="idPagoTipos" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pagos_personas">
+          <End Role="personas" Type="Self.personas" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="pagos" Type="Self.pagos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="personas">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="pagos">
+              <PropertyRef Name="idPersona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_personas_tipopersonas">
+          <End Role="tipoPersonas" Type="Self.tipoPersonas" Multiplicity="0..1" />
+          <End Role="personas" Type="Self.personas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipoPersonas">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="personas">
+              <PropertyRef Name="idTipoPersona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_posicionesPersonas_personas">
+          <End Role="personas" Type="Self.personas" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="posicionesPersonas" Type="Self.posicionesPersonas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="personas">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="posicionesPersonas">
+              <PropertyRef Name="idPersona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FKpersona347278">
+          <End Role="tipoDocumentos" Type="Self.tipoDocumentos" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="personas" Type="Self.personas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipoDocumentos">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="personas">
+              <PropertyRef Name="idTipoDocumento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_posicionesPersonas_posiciones">
+          <End Role="posiciones" Type="Self.posiciones" Multiplicity="0..1" />
+          <End Role="posicionesPersonas" Type="Self.posicionesPersonas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="posiciones">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="posicionesPersonas">
+              <PropertyRef Name="idPosicion1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_posicionesPersonas_posiciones1">
+          <End Role="posiciones" Type="Self.posiciones" Multiplicity="0..1" />
+          <End Role="posicionesPersonas" Type="Self.posicionesPersonas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="posiciones">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="posicionesPersonas">
+              <PropertyRef Name="idPosicion2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_posicionesPersonas_posiciones2">
+          <End Role="posiciones" Type="Self.posiciones" Multiplicity="0..1" />
+          <End Role="posicionesPersonas" Type="Self.posicionesPersonas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="posiciones">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="posicionesPersonas">
+              <PropertyRef Name="idPosicion3" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_posicionesPersonas_temporadas">
+          <End Role="temporadas" Type="Self.temporadas" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="posicionesPersonas" Type="Self.posicionesPersonas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="temporadas">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="posicionesPersonas">
+              <PropertyRef Name="idTemporada" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_valores_variables">
+          <End Role="variables" Type="Self.variables" Multiplicity="1" />
+          <End Role="valores" Type="Self.valores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="variables">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="valores">
+              <PropertyRef Name="idvariable" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SEGDEPWEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="asistenciaEntrenamientos" EntityType="Self.asistenciaEntrenamientos" />
+          <EntitySet Name="categorias" EntityType="Self.categorias" />
+          <EntitySet Name="categoriasPersonas" EntityType="Self.categoriasPersonas" />
+          <EntitySet Name="climas" EntityType="Self.climas" />
+          <EntitySet Name="clubes" EntityType="Self.clubes" />
+          <EntitySet Name="destrezas" EntityType="Self.destrezas" />
+          <EntitySet Name="destrezasGrupos" EntityType="Self.destrezasGrupos" />
+          <EntitySet Name="destrezasNiveles" EntityType="Self.destrezasNiveles" />
+          <EntitySet Name="destrezasPersonas" EntityType="Self.destrezasPersonas" />
+          <EntitySet Name="entrenadores" EntityType="Self.entrenadores" />
+          <EntitySet Name="entrenamientos" EntityType="Self.entrenamientos" />
+          <EntitySet Name="estadoCampos" EntityType="Self.estadoCampos" />
+          <EntitySet Name="eventos" EntityType="Self.eventos" />
+          <EntitySet Name="jugadores" EntityType="Self.jugadores" />
+          <EntitySet Name="localidades" EntityType="Self.localidades" />
+          <EntitySet Name="lugares" EntityType="Self.lugares" />
+          <EntitySet Name="medidas" EntityType="Self.medidas" />
+          <EntitySet Name="pagos" EntityType="Self.pagos" />
+          <EntitySet Name="pagoTipos" EntityType="Self.pagoTipos" />
+          <EntitySet Name="partidos" EntityType="Self.partidos" />
+          <EntitySet Name="personas" EntityType="Self.personas" />
+          <EntitySet Name="posiciones" EntityType="Self.posiciones" />
+          <EntitySet Name="posicionesPersonas" EntityType="Self.posicionesPersonas" />
+          <EntitySet Name="situaciones" EntityType="Self.situaciones" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="temporadas" EntityType="Self.temporadas" />
+          <EntitySet Name="tipoDocumentos" EntityType="Self.tipoDocumentos" />
+          <EntitySet Name="tipoEntrenador" EntityType="Self.tipoEntrenador" />
+          <EntitySet Name="tipoPersonas" EntityType="Self.tipoPersonas" />
+          <EntitySet Name="tipoSesion" EntityType="Self.tipoSesion" />
+          <EntitySet Name="usuarios" EntityType="Self.usuarios" />
+          <EntitySet Name="valores" EntityType="Self.valores" />
+          <EntitySet Name="variables" EntityType="Self.variables" />
+          <AssociationSet Name="FK_asistenciaEntrenamientos_entrenamientos" Association="Self.FK_asistenciaEntrenamientos_entrenamientos">
+            <End Role="entrenamientos" EntitySet="entrenamientos" />
+            <End Role="asistenciaEntrenamientos" EntitySet="asistenciaEntrenamientos" />
+          </AssociationSet>
+          <AssociationSet Name="FKasistencia847340" Association="Self.FKasistencia847340">
+            <End Role="personas" EntitySet="personas" />
+            <End Role="asistenciaEntrenamientos" EntitySet="asistenciaEntrenamientos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_categorias_temporadas" Association="Self.FK_categorias_temporadas">
+            <End Role="temporadas" EntitySet="temporadas" />
+            <End Role="categorias" EntitySet="categorias" />
+          </AssociationSet>
+          <AssociationSet Name="FK_categoriasPersonas_categorias" Association="Self.FK_categoriasPersonas_categorias">
+            <End Role="categorias" EntitySet="categorias" />
+            <End Role="categoriasPersonas" EntitySet="categoriasPersonas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_eventos_categorias" Association="Self.FK_eventos_categorias">
+            <End Role="categorias" EntitySet="categorias" />
+            <End Role="eventos" EntitySet="eventos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_medidas_categorias" Association="Self.FK_medidas_categorias">
+            <End Role="categorias" EntitySet="categorias" />
+            <End Role="medidas" EntitySet="medidas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_partidos_categorias" Association="Self.FK_partidos_categorias">
+            <End Role="categorias" EntitySet="categorias" />
+            <End Role="partidos" EntitySet="partidos" />
+          </AssociationSet>
+          <AssociationSet Name="FKcategoria947959" Association="Self.FKcategoria947959">
+            <End Role="entrenadores" EntitySet="entrenadores" />
+            <End Role="categorias" EntitySet="categorias" />
+          </AssociationSet>
+          <AssociationSet Name="FKentrenamie165571" Association="Self.FKentrenamie165571">
+            <End Role="categorias" EntitySet="categorias" />
+            <End Role="entrenamientos" EntitySet="entrenamientos" />
+          </AssociationSet>
+          <AssociationSet Name="FKjugador444801" Association="Self.FKjugador444801">
+            <End Role="categorias" EntitySet="categorias" />
+            <End Role="jugadores" EntitySet="jugadores" />
+          </AssociationSet>
+          <AssociationSet Name="FK_categoriasPersonas_personas" Association="Self.FK_categoriasPersonas_personas">
+            <End Role="personas" EntitySet="personas" />
+            <End Role="categoriasPersonas" EntitySet="categoriasPersonas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_partidos_climas" Association="Self.FK_partidos_climas">
+            <End Role="climas" EntitySet="climas" />
+            <End Role="partidos" EntitySet="partidos" />
+          </AssociationSet>
+          <AssociationSet Name="FKentrenamie906345" Association="Self.FKentrenamie906345">
+            <End Role="climas" EntitySet="climas" />
+            <End Role="entrenamientos" EntitySet="entrenamientos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_personas_clubes2" Association="Self.FK_personas_clubes2">
+            <End Role="clubes" EntitySet="clubes" />
+            <End Role="personas" EntitySet="personas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_usuarios_clubes1" Association="Self.FK_usuarios_clubes1">
+            <End Role="clubes" EntitySet="clubes" />
+            <End Role="usuarios" EntitySet="usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_destrezas_destrezasGrupos" Association="Self.FK_destrezas_destrezasGrupos">
+            <End Role="destrezasGrupos" EntitySet="destrezasGrupos" />
+            <End Role="destrezas" EntitySet="destrezas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_destrezas_destrezasNiveles" Association="Self.FK_destrezas_destrezasNiveles">
+            <End Role="destrezasNiveles" EntitySet="destrezasNiveles" />
+            <End Role="destrezas" EntitySet="destrezas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_destrezasPersonas_destrezas" Association="Self.FK_destrezasPersonas_destrezas">
+            <End Role="destrezas" EntitySet="destrezas" />
+            <End Role="destrezasPersonas" EntitySet="destrezasPersonas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Personas_destrezasPersonas" Association="Self.FK_Personas_destrezasPersonas">
+            <End Role="personas" EntitySet="personas" />
+            <End Role="destrezasPersonas" EntitySet="destrezasPersonas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_entrenadores_tipoEntrenador" Association="Self.FK_entrenadores_tipoEntrenador">
+            <End Role="tipoEntrenador" EntitySet="tipoEntrenador" />
+            <End Role="entrenadores" EntitySet="entrenadores" />
+          </AssociationSet>
+          <AssociationSet Name="FK_entrenamientos_TipoSesion" Association="Self.FK_entrenamientos_TipoSesion">
+            <End Role="tipoSesion" EntitySet="tipoSesion" />
+            <End Role="entrenamientos" EntitySet="entrenamientos" />
+          </AssociationSet>
+          <AssociationSet Name="FKentrenamie662203" Association="Self.FKentrenamie662203">
+            <End Role="estadoCampos" EntitySet="estadoCampos" />
+            <End Role="entrenamientos" EntitySet="entrenamientos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_eventos_lugares" Association="Self.FK_eventos_lugares">
+            <End Role="lugares" EntitySet="lugares" />
+            <End Role="eventos" EntitySet="eventos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_eventos_partidos" Association="Self.FK_eventos_partidos">
+            <End Role="partidos" EntitySet="partidos" />
+            <End Role="eventos" EntitySet="eventos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_eventos_personas" Association="Self.FK_eventos_personas">
+            <End Role="personas" EntitySet="personas" />
+            <End Role="eventos" EntitySet="eventos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_eventos_situaciones" Association="Self.FK_eventos_situaciones">
+            <End Role="situaciones" EntitySet="situaciones" />
+            <End Role="eventos" EntitySet="eventos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_partido_variables" Association="Self.FK_partido_variables">
+            <End Role="variables" EntitySet="variables" />
+            <End Role="eventos" EntitySet="eventos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_personas_localidades" Association="Self.FK_personas_localidades">
+            <End Role="localidades" EntitySet="localidades" />
+            <End Role="personas" EntitySet="personas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_medidas_personas" Association="Self.FK_medidas_personas">
+            <End Role="personas" EntitySet="personas" />
+            <End Role="medidas" EntitySet="medidas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pagos_PagoTipos" Association="Self.FK_Pagos_PagoTipos">
+            <End Role="pagoTipos" EntitySet="pagoTipos" />
+            <End Role="pagos" EntitySet="pagos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pagos_personas" Association="Self.FK_Pagos_personas">
+            <End Role="personas" EntitySet="personas" />
+            <End Role="pagos" EntitySet="pagos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_personas_tipopersonas" Association="Self.FK_personas_tipopersonas">
+            <End Role="tipoPersonas" EntitySet="tipoPersonas" />
+            <End Role="personas" EntitySet="personas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_posicionesPersonas_personas" Association="Self.FK_posicionesPersonas_personas">
+            <End Role="personas" EntitySet="personas" />
+            <End Role="posicionesPersonas" EntitySet="posicionesPersonas" />
+          </AssociationSet>
+          <AssociationSet Name="FKpersona347278" Association="Self.FKpersona347278">
+            <End Role="tipoDocumentos" EntitySet="tipoDocumentos" />
+            <End Role="personas" EntitySet="personas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_posicionesPersonas_posiciones" Association="Self.FK_posicionesPersonas_posiciones">
+            <End Role="posiciones" EntitySet="posiciones" />
+            <End Role="posicionesPersonas" EntitySet="posicionesPersonas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_posicionesPersonas_posiciones1" Association="Self.FK_posicionesPersonas_posiciones1">
+            <End Role="posiciones" EntitySet="posiciones" />
+            <End Role="posicionesPersonas" EntitySet="posicionesPersonas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_posicionesPersonas_posiciones2" Association="Self.FK_posicionesPersonas_posiciones2">
+            <End Role="posiciones" EntitySet="posiciones" />
+            <End Role="posicionesPersonas" EntitySet="posicionesPersonas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_posicionesPersonas_temporadas" Association="Self.FK_posicionesPersonas_temporadas">
+            <End Role="temporadas" EntitySet="temporadas" />
+            <End Role="posicionesPersonas" EntitySet="posicionesPersonas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_valores_variables" Association="Self.FK_valores_variables">
+            <End Role="variables" EntitySet="variables" />
+            <End Role="valores" EntitySet="valores" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SEGDEPWModelStoreContainer" CdmEntityContainer="SEGDEPWEntities">
+          <EntitySetMapping Name="asistenciaEntrenamientos">
+            <EntityTypeMapping TypeName="SEGDEPWModel.asistenciaEntrenamientos">
+              <MappingFragment StoreEntitySet="asistenciaEntrenamientos">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="idEntrenamiento" ColumnName="idEntrenamiento" />
+                <ScalarProperty Name="idPersona" ColumnName="idPersona" />
+                <ScalarProperty Name="asistencia" ColumnName="asistencia" />
+                <ScalarProperty Name="nota" ColumnName="nota" />
+                <ScalarProperty Name="idusuariomod" ColumnName="idusuariomod" />
+                <ScalarProperty Name="fechamod" ColumnName="fechamod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="categorias">
+            <EntityTypeMapping TypeName="SEGDEPWModel.categorias">
+              <MappingFragment StoreEntitySet="categorias">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="deno" ColumnName="deno" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="fechaalta" ColumnName="fechaalta" />
+                <ScalarProperty Name="idEntrenador" ColumnName="idEntrenador" />
+                <ScalarProperty Name="idTemporada" ColumnName="idTemporada" />
+                <ScalarProperty Name="idusuariomod" ColumnName="idusuariomod" />
+                <ScalarProperty Name="fechamod" ColumnName="fechamod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="categoriasPersonas">
+            <EntityTypeMapping TypeName="SEGDEPWModel.categoriasPersonas">
+              <MappingFragment StoreEntitySet="categoriasPersonas">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="idPersona" ColumnName="idPersona" />
+                <ScalarProperty Name="idCategoria" ColumnName="idCategoria" />
+                <ScalarProperty Name="idusuariomod" ColumnName="idusuariomod" />
+                <ScalarProperty Name="fechamod" ColumnName="fechamod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="climas">
+            <EntityTypeMapping TypeName="SEGDEPWModel.climas">
+              <MappingFragment StoreEntitySet="climas">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="deno" ColumnName="deno" />
+                <ScalarProperty Name="idusuariomod" ColumnName="idusuariomod" />
+                <ScalarProperty Name="fechamod" ColumnName="fechamod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="clubes">
+            <EntityTypeMapping TypeName="SEGDEPWModel.clubes">
+              <MappingFragment StoreEntitySet="clubes">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="deno" ColumnName="deno" />
+                <ScalarProperty Name="idusuariomod" ColumnName="idusuariomod" />
+                <ScalarProperty Name="fechamod" ColumnName="fechamod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="destrezas">
+            <EntityTypeMapping TypeName="SEGDEPWModel.destrezas">
+              <MappingFragment StoreEntitySet="destrezas">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="deno" ColumnName="deno" />
+                <ScalarProperty Name="idNivel" ColumnName="idNivel" />
+                <ScalarProperty Name="idGrupo" ColumnName="idGrupo" />
+                <ScalarProperty Name="nota" ColumnName="nota" />
+                <ScalarProperty Name="idusuariomod" ColumnName="idusuariomod" />
+                <ScalarProperty Name="fechamod" ColumnName="fechamod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="destrezasGrupos">
+            <EntityTypeMapping TypeName="SEGDEPWModel.destrezasGrupos">
+              <MappingFragment StoreEntitySet="destrezasGrupos">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="deno" ColumnName="deno" />
+                <ScalarProperty Name="idusuariomod" ColumnName="idusuariomod" />
+                <ScalarProperty Name="fechamod" ColumnName="fechamod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="destrezasNiveles">
+            <EntityTypeMapping TypeName="SEGDEPWModel.destrezasNiveles">
+              <MappingFragment StoreEntitySet="destrezasNiveles">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="deno" ColumnName="deno" />
+                <ScalarProperty Name="idusuariomod" ColumnName="idusuariomod" />
+                <ScalarProperty Name="fechamod" ColumnName="fechamod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="destrezasPersonas">
+            <EntityTypeMapping TypeName="SEGDEPWModel.destrezasPersonas">
+              <MappingFragment StoreEntitySet="destrezasPersonas">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="idDestreza" ColumnName="idDestreza" />
+                <ScalarProperty Name="idPersona" ColumnName="idPersona" />
+                <ScalarProperty Name="valor" ColumnName="valor" />
+                <ScalarProperty Name="nota" ColumnName="nota" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="idusuariomod" ColumnName="idusuariomod" />
+                <ScalarProperty Name="fechamod" ColumnName="fechamod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="entrenadores">
+            <EntityTypeMapping TypeName="SEGDEPWModel.entrenadores">
+              <MappingFragment StoreEntitySet="entrenadores">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="idPersona" ColumnName="idPersona" />
+                <ScalarProperty Name="idTipoEntrenador" ColumnName="idTipoEntrenador" />
+                <ScalarProperty Name="idusuariomod" ColumnName="idusuariomod" />
+                <ScalarProperty Name="fechamod" ColumnName="fechamod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="entrenamientos">
+            <EntityTypeMapping TypeName="SEGDEPWModel.entrenamientos">
+              <MappingFragment StoreEntitySet="entrenamientos">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="idCategoria" ColumnName="idCategoria" />
+                <ScalarProperty Name="idClima" ColumnName="idClima" />
+                <ScalarProperty Name="idEstadoCampo" ColumnName="idEstadoCampo" />
+                <ScalarProperty Name="idTipoSesion" ColumnName="idTipoSesion" />
+                <ScalarProperty Name="notas" ColumnName="notas" />
+                <ScalarProperty Name="idusuariomod" ColumnName="idusuariomod" />
+                <ScalarProperty Name="fechamod" ColumnName="fechamod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="estadoCampos">
+            <EntityTypeMapping TypeName="SEGDEPWModel.estadoCampos">
+              <MappingFragment StoreEntitySet="estadoCampos">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="deno" ColumnName="deno" />
+                <ScalarProperty Name="idusuariomod" ColumnName="idusuariomod" />
+                <ScalarProperty Name="fechamod" ColumnName="fechamod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="eventos">
+            <EntityTypeMapping TypeName="SEGDEPWModel.eventos">
+              <MappingFragment StoreEntitySet="eventos">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="hora" ColumnName="hora" />
+                <ScalarProperty Name="idsituacion" ColumnName="idsituacion" />
+                <ScalarProperty Name="idpartido" ColumnName="idpartido" />
+                <ScalarProperty Name="idpersona" ColumnName="idpersona" />
+                <ScalarProperty Name="idcategoria" ColumnName="idcategoria" />
+                <ScalarProperty Name="idvariable" ColumnName="idvariable" />
+                <ScalarProperty Name="idlugar" ColumnName="idlugar" />
+                <ScalarProperty Name="idusuariomod" ColumnName="idusuariomod" />
+                <ScalarProperty Name="fechamod" ColumnName="fechamod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="jugadores">
+            <EntityTypeMapping TypeName="SEGDEPWModel.jugadores">
+              <MappingFragment StoreEntitySet="jugadores">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="idCategoria" ColumnName="idCategoria" />
+                <ScalarProperty Name="idSocio" ColumnName="idSocio" />
+                <ScalarProperty Name="idusuariomod" ColumnName="idusuariomod" />
+                <ScalarProperty Name="fechamod" ColumnName="fechamod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="localidades">
+            <EntityTypeMapping TypeName="SEGDEPWModel.localidades">
+              <MappingFragment StoreEntitySet="localidades">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="deno" ColumnName="deno" />
+                <ScalarProperty Name="idusuariomod" ColumnName="idusuariomod" />
+                <ScalarProperty Name="fechamod" ColumnName="fechamod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="lugares">
+            <EntityTypeMapping TypeName="SEGDEPWModel.lugares">
+              <MappingFragment StoreEntitySet="lugares">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="deno" ColumnName="deno" />
+                <ScalarProperty Name="coordenada" ColumnName="coordenada" />
+                <ScalarProperty Name="idusuariomod" ColumnName="idusuariomod" />
+                <ScalarProperty Name="fechamod" ColumnName="fechamod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="medidas">
+            <EntityTypeMapping TypeName="SEGDEPWModel.medidas">
+              <MappingFragment StoreEntitySet="medidas">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="idpersona" ColumnName="idpersona" />
+                <ScalarProperty Name="idcategoria" ColumnName="idcategoria" />
+                <ScalarProperty Name="altura" ColumnName="altura" />
+                <ScalarProperty Name="peso" ColumnName="peso" />
+                <ScalarProperty Name="torg" ColumnName="torg" />
+                <ScalarProperty Name="idusuariomod" ColumnName="idusuariomod" />
+                <ScalarProperty Name="fechamod" ColumnName="fechamod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pagos">
+            <EntityTypeMapping TypeName="SEGDEPWModel.pagos">
+              <MappingFragment StoreEntitySet="pagos">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="idPagoTipos" ColumnName="idPagoTipos" />
+                <ScalarProperty Name="idPersona" ColumnName="idPersona" />
+                <ScalarProperty Name="concepto" ColumnName="concepto" />
+                <ScalarProperty Name="importe" ColumnName="importe" />
+                <ScalarProperty Name="mesimputar" ColumnName="mesimputar" />
+                <ScalarProperty Name="idusuariomod" ColumnName="idusuariomod" />
+                <ScalarProperty Name="fechamod" ColumnName="fechamod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pagoTipos">
+            <EntityTypeMapping TypeName="SEGDEPWModel.pagoTipos">
+              <MappingFragment StoreEntitySet="pagoTipos">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="importe" ColumnName="importe" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
+                <ScalarProperty Name="idusuariomod" ColumnName="idusuariomod" />
+                <ScalarProperty Name="fechamod" ColumnName="fechamod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="partidos">
+            <EntityTypeMapping TypeName="SEGDEPWModel.partidos">
+              <MappingFragment StoreEntitySet="partidos">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="idcategoria" ColumnName="idcategoria" />
+                <ScalarProperty Name="rival" ColumnName="rival" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="nota" ColumnName="nota" />
+                <ScalarProperty Name="idclima" ColumnName="idclima" />
+                <ScalarProperty Name="idusuariomod" ColumnName="idusuariomod" />
+                <ScalarProperty Name="fechamod" ColumnName="fechamod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="personas">
+            <EntityTypeMapping TypeName="SEGDEPWModel.personas">
+              <MappingFragment StoreEntitySet="personas">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellido" ColumnName="apellido" />
+                <ScalarProperty Name="fecnac" ColumnName="fecnac" />
+                <ScalarProperty Name="idTipoDocumento" ColumnName="idTipoDocumento" />
+                <ScalarProperty Name="documento" ColumnName="documento" />
+                <ScalarProperty Name="celular" ColumnName="celular" />
+                <ScalarProperty Name="nota" ColumnName="nota" />
+                <ScalarProperty Name="idTipoPersona" ColumnName="idTipoPersona" />
+                <ScalarProperty Name="calle" ColumnName="calle" />
+                <ScalarProperty Name="numero" ColumnName="numero" />
+                <ScalarProperty Name="piso" ColumnName="piso" />
+                <ScalarProperty Name="depto" ColumnName="depto" />
+                <ScalarProperty Name="codpos" ColumnName="codpos" />
+                <ScalarProperty Name="idLocalidad" ColumnName="idLocalidad" />
+                <ScalarProperty Name="comollegar" ColumnName="comollegar" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="facebook" ColumnName="facebook" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
+                <ScalarProperty Name="idClub" ColumnName="idClub" />
+                <ScalarProperty Name="foto" ColumnName="foto" />
+                <ScalarProperty Name="idusuariomod" ColumnName="idusuariomod" />
+                <ScalarProperty Name="fechamod" ColumnName="fechamod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="posiciones">
+            <EntityTypeMapping TypeName="SEGDEPWModel.posiciones">
+              <MappingFragment StoreEntitySet="posiciones">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="deno" ColumnName="deno" />
+                <ScalarProperty Name="siglas" ColumnName="siglas" />
+                <ScalarProperty Name="idusuariomod" ColumnName="idusuariomod" />
+                <ScalarProperty Name="fechamod" ColumnName="fechamod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="posicionesPersonas">
+            <EntityTypeMapping TypeName="SEGDEPWModel.posicionesPersonas">
+              <MappingFragment StoreEntitySet="posicionesPersonas">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="idPersona" ColumnName="idPersona" />
+                <ScalarProperty Name="idPosicion1" ColumnName="idPosicion1" />
+                <ScalarProperty Name="idPosicion2" ColumnName="idPosicion2" />
+                <ScalarProperty Name="idPosicion3" ColumnName="idPosicion3" />
+                <ScalarProperty Name="idTemporada" ColumnName="idTemporada" />
+                <ScalarProperty Name="nota" ColumnName="nota" />
+                <ScalarProperty Name="idusuariomod" ColumnName="idusuariomod" />
+                <ScalarProperty Name="fechamod" ColumnName="fechamod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="situaciones">
+            <EntityTypeMapping TypeName="SEGDEPWModel.situaciones">
+              <MappingFragment StoreEntitySet="situaciones">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="deno" ColumnName="deno" />
+                <ScalarProperty Name="idusuariomod" ColumnName="idusuariomod" />
+                <ScalarProperty Name="fechamod" ColumnName="fechamod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="SEGDEPWModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="temporadas">
+            <EntityTypeMapping TypeName="SEGDEPWModel.temporadas">
+              <MappingFragment StoreEntitySet="temporadas">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="deno" ColumnName="deno" />
+                <ScalarProperty Name="ano" ColumnName="ano" />
+                <ScalarProperty Name="activa" ColumnName="activa" />
+                <ScalarProperty Name="idusuariomod" ColumnName="idusuariomod" />
+                <ScalarProperty Name="fechamod" ColumnName="fechamod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tipoDocumentos">
+            <EntityTypeMapping TypeName="SEGDEPWModel.tipoDocumentos">
+              <MappingFragment StoreEntitySet="tipoDocumentos">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="deno" ColumnName="deno" />
+                <ScalarProperty Name="idusuariomod" ColumnName="idusuariomod" />
+                <ScalarProperty Name="fechamod" ColumnName="fechamod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tipoEntrenador">
+            <EntityTypeMapping TypeName="SEGDEPWModel.tipoEntrenador">
+              <MappingFragment StoreEntitySet="tipoEntrenador">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="deno" ColumnName="deno" />
+                <ScalarProperty Name="idusuariomod" ColumnName="idusuariomod" />
+                <ScalarProperty Name="fechamod" ColumnName="fechamod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tipoPersonas">
+            <EntityTypeMapping TypeName="SEGDEPWModel.tipoPersonas">
+              <MappingFragment StoreEntitySet="tipoPersonas">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="deno" ColumnName="deno" />
+                <ScalarProperty Name="idusuariomod" ColumnName="idusuariomod" />
+                <ScalarProperty Name="fechamod" ColumnName="fechamod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tipoSesion">
+            <EntityTypeMapping TypeName="SEGDEPWModel.tipoSesion">
+              <MappingFragment StoreEntitySet="tipoSesion">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="deno" ColumnName="deno" />
+                <ScalarProperty Name="idusuariomod" ColumnName="idusuariomod" />
+                <ScalarProperty Name="fechamod" ColumnName="fechamod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="usuarios">
+            <EntityTypeMapping TypeName="SEGDEPWModel.usuarios">
+              <MappingFragment StoreEntitySet="usuarios">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="usuario" ColumnName="usuario" />
+                <ScalarProperty Name="clave" ColumnName="clave" />
+                <ScalarProperty Name="idClub" ColumnName="idClub" />
+                <ScalarProperty Name="idusuariomod" ColumnName="idusuariomod" />
+                <ScalarProperty Name="fechamod" ColumnName="fechamod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="valores">
+            <EntityTypeMapping TypeName="SEGDEPWModel.valores">
+              <MappingFragment StoreEntitySet="valores">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="idvariable" ColumnName="idvariable" />
+                <ScalarProperty Name="deno" ColumnName="deno" />
+                <ScalarProperty Name="idusuariomod" ColumnName="idusuariomod" />
+                <ScalarProperty Name="fechamod" ColumnName="fechamod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="variables">
+            <EntityTypeMapping TypeName="SEGDEPWModel.variables">
+              <MappingFragment StoreEntitySet="variables">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="deno" ColumnName="deno" />
+                <ScalarProperty Name="idusuariomod" ColumnName="idusuariomod" />
+                <ScalarProperty Name="fechamod" ColumnName="fechamod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

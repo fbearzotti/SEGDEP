@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ed2e993efc7944c1a56188f3143bba19" Name="Diagram1">
+        <EntityTypeShape EntityType="SEGDEPWModel.asistenciaEntrenamientos" Width="1.5" PointX="5.25" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEGDEPWModel.categorias" Width="1.5" PointX="6" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEGDEPWModel.categoriasPersonas" Width="1.5" PointX="8.25" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEGDEPWModel.climas" Width="1.5" PointX="3.75" PointY="31.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEGDEPWModel.clubes" Width="1.5" PointX="0.75" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEGDEPWModel.destrezas" Width="1.5" PointX="3" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEGDEPWModel.destrezasGrupos" Width="1.5" PointX="0.75" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEGDEPWModel.destrezasNiveles" Width="1.5" PointX="0.75" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEGDEPWModel.destrezasPersonas" Width="1.5" PointX="5.25" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEGDEPWModel.entrenadores" Width="1.5" PointX="3.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEGDEPWModel.entrenamientos" Width="1.5" PointX="3" PointY="35.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEGDEPWModel.estadoCampos" Width="1.5" PointX="0.75" PointY="35.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEGDEPWModel.eventos" Width="1.5" PointX="8.25" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEGDEPWModel.jugadores" Width="1.5" PointX="8.25" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEGDEPWModel.localidades" Width="1.5" PointX="0.75" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEGDEPWModel.lugares" Width="1.5" PointX="6" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEGDEPWModel.medidas" Width="1.5" PointX="5.25" PointY="21.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEGDEPWModel.pagos" Width="1.5" PointX="8.25" PointY="21.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEGDEPWModel.pagoTipos" Width="1.5" PointX="6" PointY="38.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEGDEPWModel.partidos" Width="1.5" PointX="6" PointY="31" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEGDEPWModel.personas" Width="1.5" PointX="3" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEGDEPWModel.posiciones" Width="1.5" PointX="9" PointY="25.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEGDEPWModel.posicionesPersonas" Width="1.5" PointX="11.25" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEGDEPWModel.situaciones" Width="1.5" PointX="6" PointY="25.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEGDEPWModel.sysdiagrams" Width="1.5" PointX="8.75" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEGDEPWModel.temporadas" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEGDEPWModel.tipoDocumentos" Width="1.5" PointX="0.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEGDEPWModel.tipoEntrenador" Width="1.5" PointX="1.5" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEGDEPWModel.tipoPersonas" Width="1.5" PointX="0.75" PointY="23.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEGDEPWModel.tipoSesion" Width="1.5" PointX="0.75" PointY="38.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEGDEPWModel.usuarios" Width="1.5" PointX="3" PointY="26.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEGDEPWModel.valores" Width="1.5" PointX="8.25" PointY="35.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEGDEPWModel.variables" Width="1.5" PointX="6" PointY="35.625" IsExpanded="true" />
+        <AssociationConnector Association="SEGDEPWModel.FK_asistenciaEntrenamientos_entrenamientos" ManuallyRouted="false" />
+        <AssociationConnector Association="SEGDEPWModel.FKasistencia847340" ManuallyRouted="false" />
+        <AssociationConnector Association="SEGDEPWModel.FK_categorias_temporadas" ManuallyRouted="false" />
+        <AssociationConnector Association="SEGDEPWModel.FK_categoriasPersonas_categorias" ManuallyRouted="false" />
+        <AssociationConnector Association="SEGDEPWModel.FK_eventos_categorias" ManuallyRouted="false" />
+        <AssociationConnector Association="SEGDEPWModel.FK_medidas_categorias" ManuallyRouted="false" />
+        <AssociationConnector Association="SEGDEPWModel.FK_partidos_categorias" ManuallyRouted="false" />
+        <AssociationConnector Association="SEGDEPWModel.FKcategoria947959" ManuallyRouted="false" />
+        <AssociationConnector Association="SEGDEPWModel.FKentrenamie165571" ManuallyRouted="false" />
+        <AssociationConnector Association="SEGDEPWModel.FKjugador444801" ManuallyRouted="false" />
+        <AssociationConnector Association="SEGDEPWModel.FK_categoriasPersonas_personas" ManuallyRouted="false" />
+        <AssociationConnector Association="SEGDEPWModel.FK_partidos_climas" ManuallyRouted="false" />
+        <AssociationConnector Association="SEGDEPWModel.FKentrenamie906345" ManuallyRouted="false" />
+        <AssociationConnector Association="SEGDEPWModel.FK_personas_clubes2" ManuallyRouted="false" />
+        <AssociationConnector Association="SEGDEPWModel.FK_usuarios_clubes1" ManuallyRouted="false" />
+        <AssociationConnector Association="SEGDEPWModel.FK_destrezas_destrezasGrupos" ManuallyRouted="false" />
+        <AssociationConnector Association="SEGDEPWModel.FK_destrezas_destrezasNiveles" ManuallyRouted="false" />
+        <AssociationConnector Association="SEGDEPWModel.FK_destrezasPersonas_destrezas" ManuallyRouted="false" />
+        <AssociationConnector Association="SEGDEPWModel.FK_Personas_destrezasPersonas" ManuallyRouted="false" />
+        <AssociationConnector Association="SEGDEPWModel.FK_entrenadores_tipoEntrenador" ManuallyRouted="false" />
+        <AssociationConnector Association="SEGDEPWModel.FK_entrenamientos_TipoSesion" ManuallyRouted="false" />
+        <AssociationConnector Association="SEGDEPWModel.FKentrenamie662203" ManuallyRouted="false" />
+        <AssociationConnector Association="SEGDEPWModel.FK_eventos_lugares" ManuallyRouted="false" />
+        <AssociationConnector Association="SEGDEPWModel.FK_eventos_partidos" ManuallyRouted="false" />
+        <AssociationConnector Association="SEGDEPWModel.FK_eventos_personas" ManuallyRouted="false" />
+        <AssociationConnector Association="SEGDEPWModel.FK_eventos_situaciones" ManuallyRouted="false" />
+        <AssociationConnector Association="SEGDEPWModel.FK_partido_variables" ManuallyRouted="false" />
+        <AssociationConnector Association="SEGDEPWModel.FK_personas_localidades" ManuallyRouted="false" />
+        <AssociationConnector Association="SEGDEPWModel.FK_medidas_personas" ManuallyRouted="false" />
+        <AssociationConnector Association="SEGDEPWModel.FK_Pagos_PagoTipos" ManuallyRouted="false" />
+        <AssociationConnector Association="SEGDEPWModel.FK_Pagos_personas" ManuallyRouted="false" />
+        <AssociationConnector Association="SEGDEPWModel.FK_personas_tipopersonas" ManuallyRouted="false" />
+        <AssociationConnector Association="SEGDEPWModel.FK_posicionesPersonas_personas" ManuallyRouted="false" />
+        <AssociationConnector Association="SEGDEPWModel.FKpersona347278" ManuallyRouted="false" />
+        <AssociationConnector Association="SEGDEPWModel.FK_posicionesPersonas_posiciones" ManuallyRouted="false" />
+        <AssociationConnector Association="SEGDEPWModel.FK_posicionesPersonas_posiciones1" ManuallyRouted="false" />
+        <AssociationConnector Association="SEGDEPWModel.FK_posicionesPersonas_posiciones2" ManuallyRouted="false" />
+        <AssociationConnector Association="SEGDEPWModel.FK_posicionesPersonas_temporadas" ManuallyRouted="false" />
+        <AssociationConnector Association="SEGDEPWModel.FK_valores_variables" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
