@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>CordovaMobile</title>
+
+  <!-- CordovaMobile references -->
+  <link href="css/index.css" rel="stylesheet" />
+  <link href="css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+  <div>
+    <h2>Categorias</h2>
+    <ul id="categorias" />
+  </div>
+  <div>
+    <h2>Busqueda por ID</h2>
+    <input type="text" id="categoriaId" size="5" />
+    <input type="button" value="Buscar" onclick="find();" />
+    <p id="categoria" />
+  </div>
+
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+  <script>
+    var uri = 'http://localhost/SSDREST/odata/categorias';
+    var filtros = '?$filter=idTemporada eq 4&&orderby=nombre&$select=ID,nombre,deno';
+
+    $(document).ready(function () {
+      // Send an AJAX request
+
+      $.getJSON(uri+filtros)
+          .done(function (data) {
+
+            $.each(data.value, function (key, item) {
+
+              $('<li>', { text: formatItem(item) }).appendTo($('#categorias'));
+            });
+          });
+    });
+
+    function formatItem(item) {
+      return item.ID + '-' + item.nombre + '-' + item.deno;
+    }
+
+    function find() {
+      var id = $('#categoriaId').val();
+      $.getJSON(uri + '(' + id + ')')
+          .done(function (data) {
+            $('#categoria').text(formatItem(data));
+          })
+          .fail(function (jqXHR, textStatus, err) {
+            $('#categoria').text('Error: ' + err);
+          });
+    }
+  </script>
+  <!-- Cordova reference, this is added to your app when it's built. -->
+  <script src="cordova.js"></script>
+  <script src="scripts/platformOverrides.js"></script>
+  <script src="../Scripts/jquery-1.9.0.min.js"></script>
+  <script src="scripts/index.js"></script>
+  <script src="../Scripts/bootstrap.min.js"></script>
+</body>
+</html>
