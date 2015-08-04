@@ -8,17 +8,45 @@
   <link href="css/index.css" rel="stylesheet" />
   <link href="css/bootstrap.min.css" rel="stylesheet" />
 </head>
+
 <body>
-  <div>
-    <h2>Categorias</h2>
-    <ul id="categorias" />
-  </div>
-  <div>
-    <h2>Busqueda por ID</h2>
-    <input type="text" id="categoriaId" size="5" />
-    <input type="button" value="Buscar" onclick="find();" />
-    <p id="categoria" />
-  </div>
+  <header>
+    <h1>SSD Sistema Seguimiento Deportivo</h1>
+  </header>
+  <nav clas="navbar">
+    <ul>
+      <li>Inicio</li>
+      <li>Personas</li>
+      <li>Categorias</li>
+      <li>Entrenamientos</li>
+      <li>Destrezas</li>
+    </ul>
+  </nav>
+  <section>
+    <article>
+      <p>Club Argentino de Rugby</p>
+    </article>
+    <article>
+      <div>
+        <h2>Categorias</h2>
+        <ul id="categorias" />
+      </div>
+      <div>
+        <h2>Busqueda por ID</h2>
+        <input type="text" id="categoriaId" size="5" />
+        <input type="button" value="Buscar" onclick="find();" />
+        <p id="categoria" />
+      </div>
+    </article>
+  </section>
+  <aside></aside>
+  <footer>
+    <cite>SSD - Sistema de Seguimiento Deportivo</cite><br />
+    <cite>FLB Sistemas</cite>
+
+  </footer>
+
+
 
   <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
   <script>
@@ -28,7 +56,7 @@
     $(document).ready(function () {
       // Send an AJAX request
 
-      $.getJSON(uri+filtros)
+      $.getJSON(uri + filtros)
           .done(function (data) {
 
             $.each(data.value, function (key, item) {
@@ -53,6 +81,7 @@
           });
     }
   </script>
+
   <!-- Cordova reference, this is added to your app when it's built. -->
   <script src="cordova.js"></script>
   <script src="scripts/platformOverrides.js"></script>
