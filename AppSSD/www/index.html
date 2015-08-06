@@ -31,9 +31,62 @@
         The jQuery Mobile Bootstrap theme is meant to duplicate the appearance of <a href="http://twbs.github.io/bootstrap/">Bootstrap</a> within the context of a jQuery Mobile application. Currently only the colors are mimiced, but eventually some of the components might also work their way into the theme.
       </p>
     </div>
+
+    <div data-role="content" data-theme="a">
+      <div>
+        <h2>Categorias</h2>
+        <ul id="categorias" />
+      </div>
+      <div>
+        <h2>Busqueda por ID</h2>
+        <input type="text" id="categoriaId" size="5" />
+        <input type="button" value="Buscar" onclick="find();" />
+        <p id="categoria" />
+      </div>
+    </div>
+
     <div data-role="footer">
         <h2>&copy; 2015 FLB - Sistemas</h2>
     </div>
   </div>
+
+  <!-- Scripts Llamadas AJAX-->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+  <script>
+    var uri = 'http://localhost/SSDREST/odata/categorias';
+    var filtros = '?$filter=idTemporada eq 4&&orderby=nombre&$select=ID,nombre,deno';
+
+    $(document).ready(function () {
+      // Send an AJAX request
+
+      $.getJSON(uri + filtros)
+          .done(function (data) {
+
+            $.each(data.value, function (key, item) {
+
+              $('<li>', { text: formatItem(item) }).appendTo($('#categorias'));
+            });
+          });
+    });
+
+    function formatItem(item) {
+      return item.ID + '-' + item.nombre + '-' + item.deno;
+    }
+
+    function find() {
+      var id = $('#categoriaId').val();
+      $.getJSON(uri + '(' + id + ')')
+          .done(function (data) {
+            $('#categoria').text(formatItem(data));
+          })
+          .fail(function (jqXHR, textStatus, err) {
+            $('#categoria').text('Error: ' + err);
+          });
+    }
+  </script>
+
+  <!-- Cordova reference, this is added to your app when it's built. -->
+  <script src="cordova.js"></script>
+
 </body>
 </html>

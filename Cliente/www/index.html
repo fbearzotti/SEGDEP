@@ -1,0 +1,88 @@
+﻿<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>>SSD - Sistema de Seguimiento Deportivo</title>
+  <link rel="stylesheet" href="themes/Bootstrap.css">
+  <link rel="stylesheet" href="themes/jquery.mobile.structure-1.4.0.min.css" />
+  <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+  <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
+</head>
+<body>
+  <div data-role="page" data-theme="e">
+    <div data-role="header" data-position="inline">
+      <h1>SSD - Club Argentino de Rugby</h1>
+      <div data-role="navbar">
+        <ul>
+          <li><a href="index.html" data-icon="home" class="ui-btn-active">Home</a></li>
+          <li><a href="buttons.html" data-icon="star">Buttons</a></li>
+          <li><a href="listviews.html" data-icon="grid">Lists</a></li>
+          <li><a href="nav.html" data-icon="search">Nav</a></li>
+          <li><a href="forms.html" data-icon="gear">Forms</a></li>
+          <li><a href="login.html" data-icon="info">Login</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div data-role="content" data-theme="e">
+      <div>
+        <h2>Categorias</h2>
+        <ul id="categorias" />
+      </div>
+      <div>
+        <h2>Busqueda por ID</h2>
+        <input type="text" id="categoriaId" size="5" />
+        <input type="button" value="Buscar" onclick="find();" />
+        <p id="categoria" />
+      </div>
+    </div>
+
+    <div data-role="footer">
+      <h2>&copy; 2015 FLB - Sistemas</h2>
+    </div>
+  </div>
+
+  <!-- Scripts Llamadas AJAX-->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+  <script>
+    var uri = 'http://localhost/SSDREST/odata/categorias';
+    var filtros = '?$filter=idTemporada eq 4&&orderby=nombre&$select=ID,nombre,deno';
+
+    $(document).ready(function () {
+      // Send an AJAX request
+
+      $.getJSON(uri + filtros)
+          .done(function (data) {
+
+            $.each(data.value, function (key, item) {
+
+              $('<li>', { text: formatItem(item) }).appendTo($('#categorias'));
+            });
+          });
+    });
+
+    function formatItem(item) {
+      return item.ID + '-' + item.nombre + '-' + item.deno;
+    }
+
+    function find() {
+      var id = $('#categoriaId').val();
+      $.getJSON(uri + '(' + id + ')')
+          .done(function (data) {
+            $('#categoria').text(formatItem(data));
+          })
+          .fail(function (jqXHR, textStatus, err) {
+            $('#categoria').text('Error: ' + err);
+          });
+    }
+  </script>
+
+  <!-- Cordova reference, this is added to your app when it's built. -->
+  <script src="cordova.js"></script>
+  <script src="scripts/platformOverrides.js"></script>
+  <script src="scripts/index.js"></script>
+
+</body>
+</html>

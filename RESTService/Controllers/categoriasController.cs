@@ -15,6 +15,7 @@ using RESTService.Datos;
 
 namespace RESTService.Controllers
 {
+    [Authorize]
     public class categoriasController : ODataController
     {
         private SEGDEPWEntities db = new SEGDEPWEntities();

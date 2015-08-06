@@ -1,0 +1,92 @@
+﻿<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>>SSD - Sistema de Seguimiento Deportivo</title>
+  <link rel="stylesheet" href="themes/Bootstrap.css">
+  <link rel="stylesheet" href="themes/jquery.mobile.structure-1.4.0.min.css" />
+  <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+  <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
+</head>
+<body>
+  <div data-role="page" data-theme="e">
+    <div data-role="header" data-position="inline">
+      <h1>SSD - Club Argentino de Rugby</h1>
+    </div>
+
+    <section id="loginForm">
+      <form action="/SSDREST/Account/Login?ReturnUrl=%2FSSDREST%2Fodata%2Fcategorias" class="form-horizontal" method="post" role="form">
+        <input name="__RequestVerificationToken" type="hidden" value="oIcv46q1aTY3EMK4zyeKeL4kZThBHWr7Gz1Q-9vdiGt8r9rObYzUcESel8P5ESPQngr_bNJx1PncPf1JyoI7KRAa2luxhFtRtroK1zFRXLA1" />
+        <h4>Utilice sus credenciales para ingresar.</h4>
+        <hr />
+        <div class="form-group">
+          <label class="col-md-2 control-label" for="Email">Email</label>
+          <div class="col-md-10">
+            <input class="form-control" data-val="true" data-val-email="El campo Email no es una dirección de correo electrónico válida." data-val-required="El campo Email es obligatorio." id="Email" name="Email" type="text" value="" />
+            <span class="field-validation-valid text-danger" data-valmsg-for="Email" data-valmsg-replace="true"></span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-2 control-label" for="Password">Contraseña</label>
+          <div class="col-md-10">
+            <input class="form-control" data-val="true" data-val-required="El campo Password es obligatorio." id="Password" name="Password" type="password" />
+            <span class="field-validation-valid text-danger" data-valmsg-for="Password" data-valmsg-replace="true"></span>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Ingresar" class="btn btn-default" />
+          </div>
+        </div>
+      </form>
+    </section>
+
+    <div data-role="footer">
+      <h2>&copy; 2015 FLB - Sistemas</h2>
+    </div>
+  </div>
+
+  <!-- Scripts Llamadas AJAX-->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+  <script>
+    var uri = 'http://localhost/SSDREST/odata/categorias';
+    var filtros = '?$filter=idTemporada eq 4&&orderby=nombre&$select=ID,nombre,deno';
+
+    $(document).ready(function () {
+      // Send an AJAX request
+
+      $.getJSON(uri + filtros)
+          .done(function (data) {
+
+            $.each(data.value, function (key, item) {
+
+              $('<li>', { text: formatItem(item) }).appendTo($('#categorias'));
+            });
+          });
+    });
+
+    function formatItem(item) {
+      return item.ID + '-' + item.nombre + '-' + item.deno;
+    }
+
+    function find() {
+      var id = $('#categoriaId').val();
+      $.getJSON(uri + '(' + id + ')')
+          .done(function (data) {
+            $('#categoria').text(formatItem(data));
+          })
+          .fail(function (jqXHR, textStatus, err) {
+            $('#categoria').text('Error: ' + err);
+          });
+    }
+  </script>
+
+  <!-- Cordova reference, this is added to your app when it's built. -->
+  <script src="cordova.js"></script>
+  <script src="scripts/platformOverrides.js"></script>
+  <script src="scripts/index.js"></script>
+
+</body>
+</html>

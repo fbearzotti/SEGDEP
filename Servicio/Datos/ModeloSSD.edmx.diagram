@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="38c712689c584a9997245d7e8a7faba7" Name="Diagram1">
+        <EntityTypeShape EntityType="EntidadesSSD.asistenciaEntrenamientos" Width="1.5" PointX="5.25" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntidadesSSD.categorias" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntidadesSSD.categoriasPersonas" Width="1.5" PointX="8.25" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntidadesSSD.climas" Width="1.5" PointX="3.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntidadesSSD.clubes" Width="1.5" PointX="0.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntidadesSSD.destrezas" Width="1.5" PointX="3" PointY="29" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntidadesSSD.destrezasGrupos" Width="1.5" PointX="0.75" PointY="29.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntidadesSSD.destrezasNiveles" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntidadesSSD.destrezasPersonas" Width="1.5" PointX="5.25" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntidadesSSD.enfermedades" Width="1.5" PointX="11.25" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntidadesSSD.entrenadores" Width="1.5" PointX="0.75" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntidadesSSD.entrenamientos" Width="1.5" PointX="3" PointY="34.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntidadesSSD.estadoCampos" Width="1.5" PointX="0.75" PointY="34.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntidadesSSD.eventos" Width="1.5" PointX="8.25" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntidadesSSD.jugadores" Width="1.5" PointX="5.25" PointY="30.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntidadesSSD.localidades" Width="1.5" PointX="0.75" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntidadesSSD.lugares" Width="1.5" PointX="6" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntidadesSSD.pagos" Width="1.5" PointX="5.25" PointY="20.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntidadesSSD.pagoTipos" Width="1.5" PointX="3" PointY="39.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntidadesSSD.partidos" Width="1.5" PointX="6" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntidadesSSD.personas" Width="1.5" PointX="3" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntidadesSSD.posiciones" Width="1.5" PointX="6" PointY="27.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntidadesSSD.posicionesPersonas" Width="1.5" PointX="8.25" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntidadesSSD.salud" Width="1.5" PointX="11.25" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntidadesSSD.saludenfermedades" Width="1.5" PointX="13.5" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntidadesSSD.situaciones" Width="1.5" PointX="6" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntidadesSSD.sysdiagrams" Width="1.5" PointX="8.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntidadesSSD.temporadas" Width="1.5" PointX="0.75" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntidadesSSD.tipoDocumentos" Width="1.5" PointX="0.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntidadesSSD.tipoEntrenador" Width="1.5" PointX="1.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntidadesSSD.tipoPersonas" Width="1.5" PointX="0.75" PointY="22.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntidadesSSD.tipoSesion" Width="1.5" PointX="0.75" PointY="37.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntidadesSSD.usuarios" Width="1.5" PointX="3" PointY="25.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntidadesSSD.valores" Width="1.5" PointX="8.25" PointY="24.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EntidadesSSD.variables" Width="1.5" PointX="6" PointY="24.5" IsExpanded="true" />
+        <AssociationConnector Association="EntidadesSSD.FK_asistenciaEntrenamientos_entrenamientos" ManuallyRouted="false" />
+        <AssociationConnector Association="EntidadesSSD.FKasistencia847340" ManuallyRouted="false" />
+        <AssociationConnector Association="EntidadesSSD.FK_categorias_destrezasNiveles" ManuallyRouted="false" />
+        <AssociationConnector Association="EntidadesSSD.FK_categorias_temporadas" ManuallyRouted="false" />
+        <AssociationConnector Association="EntidadesSSD.FK_categoriasPersonas_categorias" ManuallyRouted="false" />
+        <AssociationConnector Association="EntidadesSSD.FK_destrezasPersonas_categorias" ManuallyRouted="false" />
+        <AssociationConnector Association="EntidadesSSD.FK_eventos_categorias" ManuallyRouted="false" />
+        <AssociationConnector Association="EntidadesSSD.FK_medidas_categorias" ManuallyRouted="false" />
+        <AssociationConnector Association="EntidadesSSD.FK_partidos_categorias" ManuallyRouted="false" />
+        <AssociationConnector Association="EntidadesSSD.FKcategoria947959" ManuallyRouted="false" />
+        <AssociationConnector Association="EntidadesSSD.FKentrenamie165571" ManuallyRouted="false" />
+        <AssociationConnector Association="EntidadesSSD.FKjugador444801" ManuallyRouted="false" />
+        <AssociationConnector Association="EntidadesSSD.FK_categoriasPersonas_personas" ManuallyRouted="false" />
+        <AssociationConnector Association="EntidadesSSD.FK_partidos_climas" ManuallyRouted="false" />
+        <AssociationConnector Association="EntidadesSSD.FKentrenamie906345" ManuallyRouted="false" />
+        <AssociationConnector Association="EntidadesSSD.FK_personas_clubes2" ManuallyRouted="false" />
+        <AssociationConnector Association="EntidadesSSD.FK_usuarios_clubes1" ManuallyRouted="false" />
+        <AssociationConnector Association="EntidadesSSD.FK_destrezas_destrezasGrupos" ManuallyRouted="false" />
+        <AssociationConnector Association="EntidadesSSD.FK_destrezas_destrezasNiveles" ManuallyRouted="false" />
+        <AssociationConnector Association="EntidadesSSD.FK_destrezasPersonas_destrezas" ManuallyRouted="false" />
+        <AssociationConnector Association="EntidadesSSD.FK_Personas_destrezasPersonas" ManuallyRouted="false" />
+        <AssociationConnector Association="EntidadesSSD.FK_saludenfermedades_enfermedades" ManuallyRouted="false" />
+        <AssociationConnector Association="EntidadesSSD.FK_entrenadores_tipoEntrenador" ManuallyRouted="false" />
+        <AssociationConnector Association="EntidadesSSD.FK_entrenamientos_TipoSesion" ManuallyRouted="false" />
+        <AssociationConnector Association="EntidadesSSD.FKentrenamie662203" ManuallyRouted="false" />
+        <AssociationConnector Association="EntidadesSSD.FK_eventos_lugares" ManuallyRouted="false" />
+        <AssociationConnector Association="EntidadesSSD.FK_eventos_partidos" ManuallyRouted="false" />
+        <AssociationConnector Association="EntidadesSSD.FK_eventos_personas" ManuallyRouted="false" />
+        <AssociationConnector Association="EntidadesSSD.FK_eventos_situaciones" ManuallyRouted="false" />
+        <AssociationConnector Association="EntidadesSSD.FK_partido_variables" ManuallyRouted="false" />
+        <AssociationConnector Association="EntidadesSSD.FK_personas_localidades" ManuallyRouted="false" />
+        <AssociationConnector Association="EntidadesSSD.FK_Pagos_PagoTipos" ManuallyRouted="false" />
+        <AssociationConnector Association="EntidadesSSD.FK_Pagos_personas" ManuallyRouted="false" />
+        <AssociationConnector Association="EntidadesSSD.FK_medidas_personas" ManuallyRouted="false" />
+        <AssociationConnector Association="EntidadesSSD.FK_personas_tipopersonas" ManuallyRouted="false" />
+        <AssociationConnector Association="EntidadesSSD.FK_posicionesPersonas_personas" ManuallyRouted="false" />
+        <AssociationConnector Association="EntidadesSSD.FKpersona347278" ManuallyRouted="false" />
+        <AssociationConnector Association="EntidadesSSD.FK_posicionesPersonas_posiciones" ManuallyRouted="false" />
+        <AssociationConnector Association="EntidadesSSD.FK_posicionesPersonas_posiciones1" ManuallyRouted="false" />
+        <AssociationConnector Association="EntidadesSSD.FK_posicionesPersonas_posiciones2" ManuallyRouted="false" />
+        <AssociationConnector Association="EntidadesSSD.FK_posicionesPersonas_temporadas" ManuallyRouted="false" />
+        <AssociationConnector Association="EntidadesSSD.FK_saludenfermedades_salud" ManuallyRouted="false" />
+        <AssociationConnector Association="EntidadesSSD.FK_valores_variables" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
