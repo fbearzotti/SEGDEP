@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Pruebas REST</title>
+  <title>Personas</title>
   <!-- ESTILOS -->
   <link rel="stylesheet" href="themes/Bootstrap.css">
   <link href="themes/misestilos.css" rel="stylesheet" />
@@ -16,18 +16,18 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
   <!-- PROPIOS -->
   <script src="controllers/SSDApp.js"></script>
+
 </head>
 
-<body ng-app="SSDApp">
+<body ng-app="SSDApp" >
 
-  <div data-role="page" data-theme="e">
+  <div data-role="page" data-theme="e" >
 
     <div data-role="header" data-position="inline">
       <h1>SSD - Club Argentino de Rugby</h1>
       <div data-role="navbar">
         <ul>
-          <li><a href="index.html" data-icon="home" class="ui-btn-active">Home</a></li>
-          <li><a href="listviews.html" data-icon="info">Listas</a></li>
+          <li><a href="categorias.html" data-icon="info">Categorias</a></li>
           <li><a href="login.html" data-icon="info">Login</a></li>
         </ul>
       </div>
@@ -35,10 +35,10 @@
 
     <div data-role="content" data-theme="e">
 
-      <div ng-controller="categoriasCtrl">
+      <div ng-controller="categoriasPersonasCtrl">
         <ul data-role="listview" data-inset="true" data-divider-theme="e">
-          <li data-role="list-divider">Categorias</li>
-          <li ng-repeat="x in categorias" data-icon="check" data-theme="a"><a href="">{{ x.nombre }}, {{ x.deno }}</a></li>
+          <li data-role="list-divider">Personas</li>
+          <li ng-repeat="x in personas" data-icon="check" data-theme="a"><a href="">{{ x.apellido }}, {{ x.nombre }}</a></li>
         </ul>
       </div>
 

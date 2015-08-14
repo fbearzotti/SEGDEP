@@ -4,11 +4,20 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>>SSD - Sistema de Seguimiento Deportivo</title>
+
+  <!-- BOOTSTRAP -->
   <link rel="stylesheet" href="themes/Bootstrap.css">
+  <!-- JQUERY -->
   <link rel="stylesheet" href="themes/jquery.mobile.structure-1.4.0.min.css" />
   <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
   <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
   <script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
+  <!-- ANGULAR -->
+  <script src="scripts/angular.js"></script>
+  <script src="scripts/angular-route.js"></script>
+
+  <script src="scripts/index.js"></script>
+
 </head>
 <body>
   <div data-role="page" data-theme="e">
@@ -17,10 +26,6 @@
       <div data-role="navbar">
         <ul>
           <li><a href="index.html" data-icon="home" class="ui-btn-active">Home</a></li>
-          <li><a href="buttons.html" data-icon="star">Buttons</a></li>
-          <li><a href="listviews.html" data-icon="grid">Lists</a></li>
-          <li><a href="nav.html" data-icon="search">Nav</a></li>
-          <li><a href="forms.html" data-icon="gear">Forms</a></li>
           <li><a href="login.html" data-icon="info">Login</a></li>
         </ul>
       </div>
@@ -28,15 +33,18 @@
 
     <div data-role="content" data-theme="e">
       <div>
-        <h2>Categorias</h2>
-        <ul id="categorias" />
-      </div>
-      <div>
-        <h2>Busqueda por ID</h2>
+        <h2>Categoria por ID</h2>
         <input type="text" id="categoriaId" size="5" />
         <input type="button" value="Buscar" onclick="find();" />
         <p id="categoria" />
       </div>
+
+      <div  ng-app="myApp" ng-controller="categoriasCtrl">
+        <ul ng-repeat="x in categorias">
+          <li>{{ x.nombre }}, {{ x.deno }} </li>
+        </ul>
+      </div>
+
     </div>
 
     <div data-role="footer">
@@ -44,8 +52,19 @@
     </div>
   </div>
 
+  <script>
+    //var app = angular.module('myApp', ['csrf-cross-domain'])
+    var app = angular.module('myApp', [])
+
+    app.controller('categoriasCtrl', function ($scope, $http) {
+      $http.get("http://localhost/SSDREST/odata/categorias")
+      .success(function (response) { $scope.categorias = response.value; });
+    });
+  </script>
+
+
   <!-- Scripts Llamadas AJAX-->
-  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+  <!--<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
   <script>
     var uri = 'http://localhost/SSDREST/odata/categorias';
     var filtros = '?$filter=idTemporada eq 4&&orderby=nombre&$select=ID,nombre,deno';
@@ -77,12 +96,11 @@
             $('#categoria').text('Error: ' + err);
           });
     }
-  </script>
-
+  </script>-->
   <!-- Cordova reference, this is added to your app when it's built. -->
   <script src="cordova.js"></script>
   <script src="scripts/platformOverrides.js"></script>
-  <script src="scripts/index.js"></script>
+  
 
 </body>
 </html>

@@ -1,23 +1,31 @@
-﻿<!doctype html>
+﻿<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>>SSD - Sistema de Seguimiento Deportivo</title>
+  <title>Pruebas REST</title>
+  <!-- BOOTSTRAP -->
   <link rel="stylesheet" href="themes/Bootstrap.css">
-  <link rel="stylesheet" href="themes/jquery.mobile.structure-1.4.0.min.css" />
-  <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
-  <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
-  <script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
+  <!-- JQUERY -->
+  <link href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" rel="stylesheet" />
+  <link href="themes/misestilos.css" rel="stylesheet" />
+  <link href="themes/jquery.mobile.icons.min.css" rel="stylesheet" />
+  <script src="http://code.jquery.com/jquery-2.1.4.js"></script>
+  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.js"></script>
+  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css"></script>
+  <!-- ANGULAR -->
+  <script src="scripts/angular.js"></script>
 </head>
+
 <body>
+
   <div data-role="page" data-theme="e">
     <div data-role="header" data-position="inline">
       <h1>SSD - Club Argentino de Rugby</h1>
     </div>
 
     <section id="loginForm">
-      <form action="/SSDREST/Account/Login?ReturnUrl=%2FSSDREST%2Fodata%2Fcategorias" class="form-horizontal" method="post" role="form">
+      <form action="main.html" class="form-horizontal" method="post" role="form">
         <input name="__RequestVerificationToken" type="hidden" value="oIcv46q1aTY3EMK4zyeKeL4kZThBHWr7Gz1Q-9vdiGt8r9rObYzUcESel8P5ESPQngr_bNJx1PncPf1JyoI7KRAa2luxhFtRtroK1zFRXLA1" />
         <h4>Utilice sus credenciales para ingresar.</h4>
         <hr />
@@ -48,44 +56,11 @@
     </div>
   </div>
 
-  <!-- Scripts Llamadas AJAX-->
-  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
-  <script>
-    var uri = 'http://localhost/SSDREST/odata/categorias';
-    var filtros = '?$filter=idTemporada eq 4&&orderby=nombre&$select=ID,nombre,deno';
-
-    $(document).ready(function () {
-      // Send an AJAX request
-
-      $.getJSON(uri + filtros)
-          .done(function (data) {
-
-            $.each(data.value, function (key, item) {
-
-              $('<li>', { text: formatItem(item) }).appendTo($('#categorias'));
-            });
-          });
-    });
-
-    function formatItem(item) {
-      return item.ID + '-' + item.nombre + '-' + item.deno;
-    }
-
-    function find() {
-      var id = $('#categoriaId').val();
-      $.getJSON(uri + '(' + id + ')')
-          .done(function (data) {
-            $('#categoria').text(formatItem(data));
-          })
-          .fail(function (jqXHR, textStatus, err) {
-            $('#categoria').text('Error: ' + err);
-          });
-    }
-  </script>
 
   <!-- Cordova reference, this is added to your app when it's built. -->
   <script src="cordova.js"></script>
   <script src="scripts/platformOverrides.js"></script>
+
   <script src="scripts/index.js"></script>
 
 </body>

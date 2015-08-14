@@ -3,22 +3,21 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Pruebas REST</title>
-  <!-- ESTILOS -->
+  <title>Principal</title>
+  <!-- BOOTSTRAP -->
   <link rel="stylesheet" href="themes/Bootstrap.css">
-  <link href="themes/misestilos.css" rel="stylesheet" />
+  <!-- JQUERY -->
   <link href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" rel="stylesheet" />
+  <link href="themes/misestilos.css" rel="stylesheet" />
   <link href="themes/jquery.mobile.icons.min.css" rel="stylesheet" />
-  <!-- SCRIPTS -->
   <script src="http://code.jquery.com/jquery-2.1.4.js"></script>
   <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.js"></script>
   <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
-  <!-- PROPIOS -->
-  <script src="controllers/SSDApp.js"></script>
+  <!-- ANGULAR -->
+  <script src="scripts/angular.js"></script>
 </head>
 
-<body ng-app="SSDApp">
+<body>
 
   <div data-role="page" data-theme="e">
 
@@ -26,21 +25,14 @@
       <h1>SSD - Club Argentino de Rugby</h1>
       <div data-role="navbar">
         <ul>
-          <li><a href="index.html" data-icon="home" class="ui-btn-active">Home</a></li>
-          <li><a href="listviews.html" data-icon="info">Listas</a></li>
-          <li><a href="login.html" data-icon="info">Login</a></li>
+          <li><a href="categorias.html" data-icon="info">Categorias</a></li>
+          <li><a href="listviews.html" data-icon="info">Personas</a></li>
         </ul>
       </div>
     </div>
 
     <div data-role="content" data-theme="e">
 
-      <div ng-controller="categoriasCtrl">
-        <ul data-role="listview" data-inset="true" data-divider-theme="e">
-          <li data-role="list-divider">Categorias</li>
-          <li ng-repeat="x in categorias" data-icon="check" data-theme="a"><a href="">{{ x.nombre }}, {{ x.deno }}</a></li>
-        </ul>
-      </div>
 
     </div>
 
