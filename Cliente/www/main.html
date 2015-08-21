@@ -1,42 +1,42 @@
 ﻿<!DOCTYPE html>
-<html>
+<html ng-app="SSDApp">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Principal</title>
-  <!-- BOOTSTRAP -->
+  <!-- ESTILOS -->
   <link rel="stylesheet" href="themes/Bootstrap.css">
-  <!-- JQUERY -->
   <link href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" rel="stylesheet" />
-  <link href="themes/misestilos.css" rel="stylesheet" />
   <link href="themes/jquery.mobile.icons.min.css" rel="stylesheet" />
+  <link href="themes/foonav.min.css" rel="stylesheet" />
+  <link href="themes/misestilos.css" rel="stylesheet" />
+  <!-- SCRIPTS -->
   <script src="http://code.jquery.com/jquery-2.1.4.js"></script>
   <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.js"></script>
   <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css"></script>
-  <!-- ANGULAR -->
-  <script src="scripts/angular.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+  <script src="scripts/angular-route.min.js"></script>
+  <script src="scripts/foonav.min.js"></script>
+  <!-- PROPIOS -->
+  <script src="scripts/app.js"></script>
+  <script src="scripts/categoriasControllers.js"></script>
 </head>
 
 <body>
 
-  <div data-role="page" data-theme="e">
+  <div id="page" data-role="page" data-theme="e">
 
-    <div data-role="header" data-position="inline">
+    <div id="header" data-role="header" data-position="inline" >
       <h1>SSD - Club Argentino de Rugby</h1>
-      <div data-role="navbar">
-        <ul>
-          <li><a href="categorias.html" data-icon="info">Categorias</a></li>
-          <li><a href="listviews.html" data-icon="info">Personas</a></li>
-        </ul>
+      <div id="mi_menu" style="display:block">
       </div>
     </div>
 
-    <div data-role="content" data-theme="e">
+    <div id="content" data-role="content" data-theme="e">
+      <div ng-view></div>
+     </div>
 
-
-    </div>
-
-    <div data-role="footer">
+    <div id="footer" data-role="footer">
       <h2>&copy; 2015 FLB - Sistemas</h2>
     </div>
   </div>

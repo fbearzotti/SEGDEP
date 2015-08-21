@@ -1,0 +1,7 @@
+﻿<div data-theme="e">
+  <ul data-role="listview" data-inset="true" data-divider-theme="e">
+    <li data-role="list-divider">Categorias</li>
+    <li ng-repeat="x in categorias" data-icon="check" data-theme="a"><a href="categoriasPersonas.html?idcategoria={{ x.ID }}">{{ x.nombre }}, {{ x.deno }}</a></li>
+  </ul>
+  <button ng-click="categ.greet()">Refresh</button>
+</div>

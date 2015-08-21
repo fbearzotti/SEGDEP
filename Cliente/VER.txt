@@ -1,4 +1,0 @@
-﻿Paquetes instalados
-
-angular-csrf-cross-domain
-Comando a correr desde cmd: bower install angular-csrf-cross-domain

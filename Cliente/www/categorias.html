@@ -3,49 +3,45 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Categorias</title>
+  <title>Pruebas REST</title>
   <!-- ESTILOS -->
   <link rel="stylesheet" href="themes/Bootstrap.css">
-  <link href="themes/misestilos.css" rel="stylesheet" />
   <link href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" rel="stylesheet" />
   <link href="themes/jquery.mobile.icons.min.css" rel="stylesheet" />
+  <link href="themes/foonav.min.css" rel="stylesheet" />
+  <link href="themes/misestilos.css" rel="stylesheet" />
   <!-- SCRIPTS -->
   <script src="http://code.jquery.com/jquery-2.1.4.js"></script>
   <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.js"></script>
   <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+  <script src="scripts/foonav.min.js"></script>
   <!-- PROPIOS -->
-  <script src="controllers/SSDApp.js"></script>
+  <!--<script src="controllers/SSDApp.js"></script>-->
 
 </head>
 
 <body ng-app="SSDApp">
 
-  <div data-role="page" data-theme="e">
+  <div id="page" data-role="page" data-theme="e">
 
-    <div data-role="header" data-position="inline">
-      <h1>SSD - Club Argentino de Rugby</h1>
-      <div data-role="navbar">
-        <ul>
-          <li><a href="main.html" data-icon="home" class="ui-btn-active">Principal</a></li>
-          <li><a href="listviews.html" data-icon="info">Listas</a></li>
-          <li><a href="login.html" data-icon="info">Login</a></li>
-        </ul>
-      </div>
+    <div id="header" data-role="header" data-position="inline">
+      <h1>Club Argentino de Rugby</h1>
     </div>
 
-    <div data-role="content" data-theme="e">
+    <div id="content" data-role="content" data-theme="e">
 
       <div ng-controller="categoriasCtrl">
+
         <ul data-role="listview" data-inset="true" data-divider-theme="e">
           <li data-role="list-divider">Categorias</li>
           <li ng-repeat="x in categorias" data-icon="check" data-theme="a"><a href="categoriasPersonas.html?idcategoria={{ x.ID }}">{{ x.nombre }}, {{ x.deno }}</a></li>
         </ul>
+        <button ng-click="categ.greet()">Refresh</button>
       </div>
-
     </div>
 
-    <div data-role="footer">
+    <div id="footer" data-role="footer">
       <h2>&copy; 2015 FLB - Sistemas</h2>
     </div>
   </div>
