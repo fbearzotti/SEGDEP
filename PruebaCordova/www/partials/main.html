@@ -1,0 +1,26 @@
+﻿<div jqm>
+  <div ng-controller="mainPageController">
+    Usted ha ingresado <br>
+    <a href="#" data-role="button" data-inline="true" ng-click="logout()">Salir</a>
+
+    <div id="navbar" data-role="navbar" data-theme="e">
+      <select ng-model="selection">
+        <option value="h" selected>Menu</option>
+        <option value="a">About</option>
+        <option value="c">Categorias</option>
+        <option value="o">Otro</option>
+      </select>
+      <div ng-switch on="selection">
+        <div ng-switch-when="h">
+          <ng-include src="'partials/home.html'"></ng-include>
+        </div>
+        <div ng-switch-when="a">
+          <ng-include src="'partials/aboutus.html'"></ng-include>
+        </div>
+        <div ng-switch-when="c">
+          <ng-include src="'partials/categorias.html'"></ng-include>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

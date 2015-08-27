@@ -1,0 +1,34 @@
+﻿#page {
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+}
+#header {
+  width:100%;
+}
+
+#navbar {
+  width:100%;
+  /*background-color:#abe4ec;*/
+}
+
+#content {
+  width:100%;
+  flex-grow:2;
+  /*background-color:#abe4ec;*/
+  margin:0;
+}
+
+#loginForm {
+  width:100%;
+  flex-grow:2;
+  /*background-color:#abe4ec;*/
+}
+
+#footer {
+  width:100%;
+}
+
+.ui-header .ui-title, .ui-footer .ui-title {
+  margin: 0 10%;
+}
