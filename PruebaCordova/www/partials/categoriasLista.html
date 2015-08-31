@@ -1,5 +1,5 @@
 ﻿<div jqm>
-  <div>
+  <div id="listaCat" ng-controller="categoriasCtrl">
     <ul data-role="listview" data-divider-theme="e" data-inset="true" data-filter="true">
       <li ng-repeat="x in categorias" data-icon="check" data-theme="a"><a href="categoriasPersonas.html?idcategoria={{ x.ID }}">{{ x.nombre }}, {{ x.deno }}</a></li>
     </ul>

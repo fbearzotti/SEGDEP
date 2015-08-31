@@ -1,7 +1,13 @@
 ﻿<div jqm>
-  <div id="listaCat" ng-controller="categoriasCtrl">
-    <ul data-role="listview" data-divider-theme="e" data-inset="true" data-filter="true">
-      <li ng-repeat="x in categorias" data-icon="check" data-theme="a"><a href="categoriasPersonas.html?idcategoria={{ x.ID }}">{{ x.nombre }}, {{ x.deno }}</a></li>
-    </ul>
+  <div ng-controller="mainController" data-role="page" data-theme="e">
+    <div id="header" data-role="header" data-position="fixed">
+      <h1>SSD - Club Argentino de Rugby</h1>
+    </div>
+    <div data-role="content" id="subDiv">
+      <ng-include src="'partial/categorias.html'"></ng-include>
+    </div>
+    <div data-role="footer" data-position="fixed">
+      <h2>&copy; 2015 FLB - Sistemas</h2>
+    </div>
   </div>
 </div>
