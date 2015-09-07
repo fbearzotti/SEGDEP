@@ -1,0 +1,28 @@
+﻿<div id="cabecera" flex>
+  <md-content>
+    <md-toolbar >
+      <div class="md-toolbar-tools">
+        <md-button ng-click="toggleSidenav('left')" class="md-icon-button">
+          <span class="flaticon-menu48"></span>
+        </md-button>
+        <h2>SSD - Club Argentino de Rugby</h2>
+        <span flex></span>
+      </div>
+    </md-toolbar>
+  </md-content>
+</div>
+
+<div id="menu" flex>
+  <md-sidenav class="site-sidenav md-sidenav-left md-whiteframe-z2 ng-isolate-scope md-closed md-locked-open" md-component-id="left" tabindex="-1" style="">
+    <md-menu-content ng-controller="MenuCtrl">
+      <md-menu-item ng-repeat="item in items">
+        <div layout="row">
+          <md-button ng-href="/{{item.url}}" md-ripple-size="full">
+            <span class="{{item.icono}}"></span>
+            {{item.titulo}}
+          </md-button>
+        </div>
+      </md-menu-item>
+    </md-menu-content>
+  </md-sidenav>
+</div>

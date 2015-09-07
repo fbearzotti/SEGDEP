@@ -1,0 +1,8 @@
+﻿<div jqm>
+  <md-list ng-controller="categoriasCtrl">
+    <md-subheader class="md-no-sticky">Categorias</md-subheader>
+    <md-list-item ng-repeat="x in categorias">
+      <a href="categoriasPersonas.html?idcategoria={{ x.ID }}">{{ x.nombre }}, {{ x.deno }}</a>
+    </md-list-item>
+  </md-list>
+</div>
