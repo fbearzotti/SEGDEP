@@ -1,0 +1,19 @@
+﻿.toolbardemoBasicUsage md-toolbar md-icon.md-default-theme {
+  color: white;
+}
+
+#pie {
+  align-self: center;
+  background-color: #06326a;
+  min-width: 100%;
+  color: white;
+}
+
+.pie {
+  align-self: center;
+  background-color: #06326a;
+  min-width: 100%;
+  color: white;
+}
+
+
