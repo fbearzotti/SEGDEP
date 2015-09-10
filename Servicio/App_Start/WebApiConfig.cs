@@ -45,7 +45,6 @@ namespace Servicio
       builder.EntitySet<destrezas>("destrezas");
       builder.EntitySet<destrezasGrupos>("destrezasGrupos");
       builder.EntitySet<destrezasNiveles>("destrezasNiveles");
-      builder.EntitySet<vPersonas>("vPersonas");
       config.Routes.MapODataServiceRoute("odata", "odata", builder.GetEdmModel());
       config.MapHttpAttributeRoutes();
 
